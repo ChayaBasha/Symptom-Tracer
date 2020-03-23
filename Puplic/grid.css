@@ -7,7 +7,7 @@ body {
 }
 .container {
     display: grid;
-    grid-template-columns: [first] 20% [second] 20% [third] 20% [fourth] 20% [fifth] 20%;
+    grid-template-columns: [first] 20% [second] 20% [third] auto [fourth] 20% [fifth] 20%;
     grid-template-rows:[row1] 8% [row2] 6% [row3] auto [row4] 15% [row5] 15% [row6] 10%;
     background-color: white;
     position: absolute;
@@ -54,7 +54,7 @@ body {
 .loginForm {
     grid-column:3/5;
     grid-row:4/5;
-    justify-self: center;
+    justify-self: stretch;
     align-self:center;
     font-family: copperplate;
     padding: 1em;
