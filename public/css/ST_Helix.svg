@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 360 360" width="360" height="360">
+    <defs>
+        <path d="M244.35 56.79C244.35 81.92 210.47 102.33 168.75 102.33C127.03 102.33 93.15 81.92 93.15 56.79C93.15 31.66 127.03 11.25 168.75 11.25C210.47 11.25 244.35 31.66 244.35 56.79Z" id="c4vokqAgWI"></path>
+        <mask id="maska6L8v74UQp" x="81.15" y="-0.75" width="175.19" height="115.08" maskUnits="userSpaceOnUse">
+            <rect x="81.15" y="-0.75" width="175.19" height="115.08" fill="white"></rect>
+            <use xlink:href="#c4vokqAgWI" opacity="1" fill="black"></use>
+        </mask>
+        <path d="" id="bSvDhHanQ"></path>
+        <path d="" id="fysg3HYNz"></path>
+        <path d="M154.46 355.29C155.71 333.96 200.06 314.16 199.35 276.29C198.64 238.41 142.35 221.19 142.35 181.49C142.35 141.79 177.26 138.83 185.1 118.29" id="a1oWMk2zW1"></path>
+        <path d="M187.24 355.29C186 333.96 141.64 314.16 142.35 276.29C143.07 238.41 199.36 221.19 199.36 181.49C199.36 141.79 164.44 138.83 156.61 118.29" id="a5hVpKziiL"></path>
+    </defs>
+    <g>
+        <g>
+            <g mask="url(#maska6L8v74UQp)">
+                <use xlink:href="#c4vokqAgWI" opacity="1" fill-opacity="0" stroke="#a0bdd4" stroke-width="12" stroke-opacity="1"></use>
+            </g>
+        </g>
+        <g>
+            <g>
+                <use xlink:href="#bSvDhHanQ" opacity="1" fill-opacity="0" stroke="#afe381" stroke-width="8" stroke-opacity="1"></use>
+            </g>
+        </g>
+        <g>
+            <g>
+                <use xlink:href="#fysg3HYNz" opacity="1" fill-opacity="0" stroke="#a0bdd4" stroke-width="1" stroke-opacity="1"></use>
+            </g>
+        </g>
+        <g>
+            <g>
+                <use xlink:href="#a1oWMk2zW1" opacity="1" fill-opacity="0" stroke="#afe381" stroke-width="8" stroke-opacity="1"></use>
+            </g>
+        </g>
+        <g>
+            <g>
+                <use xlink:href="#a5hVpKziiL" opacity="1" fill-opacity="0" stroke="#afe381" stroke-width="8" stroke-opacity="1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

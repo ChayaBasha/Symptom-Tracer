@@ -1,16 +1,21 @@
 <!DOCTYPE html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="grid.css">
+        <link rel="stylesheet" type="text/css" href="css/grid.css">
 
         <body class='container'>
             <div class='header'>
-                Welcome
+                Welcome to Symptom Tracer
             </div>
 
             <div class="aside">
-                
-                    
+                <h2> Example Logs</h2>
+                <h3>Symptom Categories</h3>
+                <li class="asideBar"><a href="./headacheLog.html">Headache Log</a></li>
+                    <li class="asideBar"><a href="./achesPainsLog.html">Aches & Pains</a></li>
+                    <h3>Health Inputs</h3>
+                    <li class="asideBar" ><a href="./foodLog.html">Food Log</a></li>
+                    <li class="asideBar" ><a href="./activityLog.html">Activity Log</a></li>
             </div>
 
             <main class="mainContent">
@@ -27,8 +32,8 @@
                    <input type="text" id="password" name="password">
                    <br>
                    <br>
-                   <input type="submit" value="Submit">
-                   <input type="submit" value="Register">
+                   <button class='button'>Login</button>
+                   <button class='button'><a href="./register.html">Register</button>
 
                 </form>
             </div>
@@ -36,7 +41,7 @@
             <div class='footer'>
                   
             </div>
-
+            <script src='./src/server.js'></script>
         </body>
     </head>
 </html>
