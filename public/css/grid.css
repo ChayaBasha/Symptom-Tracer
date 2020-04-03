@@ -98,6 +98,7 @@ li a:hover {
     padding: 1em;
     text-align: center;
 }
+
 .button {
     background-color: rgb(187, 230,187);
     border-radius: 8px;
@@ -110,40 +111,7 @@ li a:hover {
     background-color:rgb(219,193,222);
 }
 
-.logNavBar {
-    grid-column: 2/6;
-    grid-row:2;
-}
 
-li {
-    list-style: none;
-    font-family: fantasy;
-    display: inline-block;
-    padding: 8px;
-    font-weight: bold;
-}
-.logView{
-    grid-column:2/6;
-    grid-row: 3/6;
-    background-color: rgba(187, 230,187, .6);
-    color: rgb(88, 123, 155);
-    font-family: fantasy;
-    padding: 8px;
-}
-table {
-    padding: .75em;
-    text-align: left;
-}
-
-td {
-    padding: .7em;
-    text-align: left;
-}
-th {
-    padding: 1em;
-    font-size:1.2em;
-  
-}
 .footer {
     grid-column:1/6;
     grid-row:6;
