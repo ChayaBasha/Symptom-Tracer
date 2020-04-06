@@ -17,7 +17,7 @@ const logLevel = process.env.LOG_LEVEL || 'dev';
 
 // Make connection to the db
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/journal', {
+mongoose.connect('mongodb://localhost/symptomTracer', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
