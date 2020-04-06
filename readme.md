@@ -2,5 +2,7 @@ Symptom Tracer is an app designed to allow you to track all of your health sympt
 
 
 TO DO
+Test Mongo API
+Instrucitons for App
 
 Fix Cancel Button on Register Form 
