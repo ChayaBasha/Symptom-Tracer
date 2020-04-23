@@ -1,7 +1,7 @@
 const {healthInputEntryModel} = require('../models/healthInputEntry.model');
 
-exports.getAllUserHealthInputEntries = function(req, res) {
-  healthInputEntryModel.find({user_id:req.user._id}, function(err, healthInputEntries) {
+exports.getAllHealthInputEntries = function(req, res) {
+  healthInputEntryModel.find({healthInputLog_id:req.healthInputLog._id}, function(err, healthInputEntries) {
     if (err) {
       res.send(err);
     } else if (healthInputEntries) {
@@ -13,7 +13,7 @@ exports.getAllUserHealthInputEntries = function(req, res) {
 };
 
 exports.getHealthInputEntry = function(req, res) {
-  healthInputEntryModel.findOne({_id:req.params.healthInputEntryId, user_id: req.user._id}, 
+  healthInputEntryModel.findOne({_id:req.params.healthInputEntryId, healthInputLog_id:req.healthInputLog._id}, 
     function(err, healthInputEntry) {
     if (err) {
       res.send(err);
@@ -35,7 +35,7 @@ exports.createHealthInputEntry = function(req, res) {
 
 exports.updateHealthInputEntry = function(req, res) {
   healthInputEntryModel.findOneAndUpdate(
-    { _id: req.params.healthInputEntryId, user_id: req.user._id},
+    { _id: req.params.healthInputEntryId, healthInputLog_id:req.healthInputLog._id},
     req.body,
     { new: true },
     function(err, data) {
@@ -48,7 +48,7 @@ exports.updateHealthInputEntry = function(req, res) {
 };
 
 exports.deleteHealthInputEntry = function(req, res) {
-  healthInputEntryModel.deleteOne({ _id: req.params.healthInputEntryId, user_id: req.user._id}, function(err) {
+  healthInputEntryModel.deleteOne({ _id: req.params.healthInputEntryId, healthInputLog_id:req.healthInputLog._id}, function(err) {
     if (err) {
       res.send(err);
     }

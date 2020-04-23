@@ -1,0 +1,29 @@
+.loginForm {
+    grid-column:3/5;
+    grid-row:4/5;
+    justify-self: stretch;
+    align-self:center;
+    font-family: copperplate;
+    padding: 1em;
+    text-align: center;
+}
+
+.registerForm {
+    grid-column:2/6;
+    grid-row:4/6;
+    justify-self: center;
+    align-self:center;
+    font-family: copperplate;
+    padding: 1em;
+    text-align: center;
+}
+
+.logEntryForm {
+    grid-column:2/6;
+    grid-row:2/5;
+    justify-self: stretch;
+    align-self:center;
+    font-family: copperplate;
+    padding: 1em;
+    text-align: center;
+}

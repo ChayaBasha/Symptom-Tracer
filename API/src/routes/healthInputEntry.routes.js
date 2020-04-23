@@ -5,7 +5,7 @@ const healthInputEntryRoutes = express.Router();
 // Routes if there is nothing added to the Path
 
 healthInputEntryRoutes
-  .get('/', healthInputEntryController.getAllUserHealthInputEntries) 
+  .get('/', healthInputEntryController.getAllHealthInputEntries) 
   .post('/', healthInputEntryController.createHealthInputEntry); 
 
 healthInputEntryRoutes

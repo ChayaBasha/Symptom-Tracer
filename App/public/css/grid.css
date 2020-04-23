@@ -60,8 +60,33 @@ a {
     font-family: fantasy;
 }
 
+.navBar {
+    font-family:arial;
+    text-align: center;
+    align-self:center;
+    grid-column: 5/6;
+    grid-row: 1;
+    font-size: 1em;
+}
+
 li a:hover {
     background-color: rgb(219,193,222);
+
+}
+a:link {
+    color: rgb(214, 103, 241);
+}
+a:visited {
+    color: purple;
+}
+
+.link {
+    text-decoration: underline;
+}
+
+
+a:hover {
+    background-color: darkcyan;
 
 }
 .mainContent {
@@ -76,26 +101,6 @@ li a:hover {
     color: rgb(88, 123, 155);
     font-size: 1.5em;
     font-weight: bold;
-    text-align: center;
-}
-
-.loginForm {
-    grid-column:3/5;
-    grid-row:4/5;
-    justify-self: stretch;
-    align-self:center;
-    font-family: copperplate;
-    padding: 1em;
-    text-align: center;
-}
-
-.registerForm {
-    grid-column:2/6;
-    grid-row:4/6;
-    justify-self: center;
-    align-self:center;
-    font-family: copperplate;
-    padding: 1em;
     text-align: center;
 }
 

@@ -3,22 +3,17 @@
 Symptom Tracer is an app designed to allow you to track all of your health symptoms from weird pains in your toes to sporatic dizziness as well as some potential triggers in one place.
 
 # Features Under Development
-connecting front end to backend
-front ent to add health input log, symptom log, examples (non-logged in)
+- Examples When not Logged In
+- Add New Symptom Log
+- Display Users Symptom Logs
+- Display Symptom Entries for Symptom Log
+- Add Symptom Entry
 
-# Where I am at in Development
-I did not yet get the front and back end connected due to time constraints
-
-I did get a lot of the backend built out: backend for CRUD of each feature 
-
-## Using Post Man
-Authentication works
-Generating Tokens Works
-Not allowing to add otther logs if not logged in works
-Adding Logs works
-Adding Symptoms Works
-Did not yet test update and delete for anything but users (users does work)
-
+# To Do
+- change backend models for entries
+- front end forms to add logs and entries
+- view for viewing logs
+-tweaks
 
 # Instructions for the APP
 
@@ -29,14 +24,17 @@ I did not push up my jwt-config.js file for security reasons and best practices.
 
 ```
 module.exports = {
-    secret: <yourSecret>
+    secret: "<yourSecret>"
 };
 
 ```
 
-In order to run this, you will need a mongo database called symptomTracer. Remmber to create a new db in mongo you need to insert one into it for it to stay created. 
+In order to run this, you will need a mongo database called symptomTracer. Remmber to create a new db in mongo you need to insert one into it for it to stay created.
+```
+db.users.insertOne({userName:"test", password:"password"})
+```
 
-In order to start the backend server, you need to cd so that you are in the API folder
+In order to start the backend server, you need to cd so that you are in the API folder and then run the nodemon script
 
 ```
 npm run serve
@@ -44,13 +42,7 @@ npm run serve
 ```
 
 ## Front End
-Cd do you are in the App folder
+cd so you are in the App folder and then run the nodemon script.
 ```
-node server/index.js
+npm run serve
 ```
-
-# Things I still need to Do
-
-Connect backend and front end. 
-Build out additional forms and views
-Play Around with Navigation to make sure it works both directions

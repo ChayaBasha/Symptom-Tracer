@@ -1,7 +1,7 @@
 const {symptomEntryModel} = require('../models/symptomEntry.model');
 
-exports.getAllUserSymptomEntries = function(req, res) {
-  symptomEntryModel.find({user_id:req.user._id}, function(err, symptomEntries) {
+exports.getAllSymptomEntries = function(req, res) {
+  symptomEntryModel.find({symptomLog_id:req.symptomLog_id}, function(err, symptomEntries) {
     if (err) {
       res.send(err);
     } else if (symptomEntries) {
@@ -13,7 +13,7 @@ exports.getAllUserSymptomEntries = function(req, res) {
 };
 
 exports.getSymptomEntry = function(req, res) {
-  symptomEntryModel.findOne({_id:req.params.symptomEntryId, user_id: req.user._id}, 
+  symptomEntryModel.findOne({_id:req.params.symptomEntryId, symptomLog_id:req.symptomLog_id}, 
     function(err, symptomEntry) {
     if (err) {
       res.send(err);
@@ -35,7 +35,7 @@ exports.createSymptomEntry = function(req, res) {
 
 exports.updateSymptomEntry = function(req, res) {
   symptomEntryModel.findOneAndUpdate(
-    { _id: req.params.symptomEntryId, user_id: req.user._id},
+    { _id: req.params.symptomEntryId, symptomLog_id:req.symptomLog_id},
     req.body,
     { new: true },
     function(err, data) {
@@ -48,7 +48,7 @@ exports.updateSymptomEntry = function(req, res) {
 };
 
 exports.deleteSymptomEntry = function(req, res) {
-  symptomEntryModel.deleteOne({ _id: req.params.symptomEntryId, user_id: req.user._id}, function(err) {
+  symptomEntryModel.deleteOne({ _id: req.params.symptomEntryId, symptomLog_id:req.symptomLog_id}, function(err) {
     if (err) {
       res.send(err);
     }

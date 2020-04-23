@@ -23,13 +23,14 @@ exports.getSymptomLog = function(req, res) {
 };
 
 exports.createSymptomLog = function(req, res) {
-  const newSymptomLog = new symptomLog({...req.body}); 
+  const newSymptomLog = new symptomLogModel({...req.body, user_id: req.user._id}); 
   
   newSymptomLog.save(function(err, data) {
     if (err) {
       res.send(err);
     }
     res.json(data);
+    console.log(JSON.stringify(data));
   });
 };
 

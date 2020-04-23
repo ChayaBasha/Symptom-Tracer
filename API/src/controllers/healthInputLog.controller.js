@@ -23,7 +23,7 @@ exports.getHealthInputLog = function(req, res) {
 };
 
 exports.createHealthInputLog = function(req, res) {
-  const newhealthInputLog = new healthInputLog({...req.body}); 
+  const newhealthInputLog = new healthInputLogModel({...req.body}); 
   
   newhealthInputLog.save(function(err, data) {
     if (err) {
