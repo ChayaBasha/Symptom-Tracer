@@ -1,16 +1,16 @@
 {
-  "name": "src",
-  "version": "1.0.0",
+  "name": "symptomTracer",
+  "version": "0.0.1",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "serve": "nodemon ./server/index.js"
   },
   "author": "Johanna Blumenthal",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "node": "^13.11.0"
+    "nodemon": "^2.0.2"
   }
 }

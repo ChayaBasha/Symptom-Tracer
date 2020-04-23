@@ -16,7 +16,12 @@ const symptomLogSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  
+  //this ties the log to a particular user
+  user_id: {
+    type: Schema.Types.ObjectId,
+    required: true
+  }
 });
 
-module.exports = mongoose.model('symptomLog', symptomLogSchema);
+const symptomLogModel = mongoose.model('symptomLog', symptomLogSchema);
+module.exports = {symptomLogModel, symptomLogSchema};

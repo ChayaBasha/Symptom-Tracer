@@ -1,27 +1,31 @@
-const healthInputLog = require('../models/healthInputLog.model');
+const {healthInputLogModel} = require('../models/healthInputLog.model');
 
-exports.getAllHealthInputLogs = function(req, res) {
-  healthInputLog.find({}, function(err, data) {
+exports.getAllUserHealthInputLogs = function(req, res) {
+  healthInputLogModel.find({user_id:req.user._id}, function(err, healthInputLogs) {
     if (err) {
       res.send(err);
+    } else if (healthInputLogs) {
+      res.json(healthInputLogs);
+    } else {
+      res.status(400).send("Could not get healthInput Logs")
     }
-    res.json(data);
   });
 };
 
 exports.getHealthInputLog = function(req, res) {
-  healthInputLog.findById(req.params.healthInputLogId, function(err, data) {
+  healthInputLogModel.findOne({_id:req.params.healthInputLogId, user_id: req.user._id}, 
+    function(err, healthInputLog) {
     if (err) {
       res.send(err);
     }
-    res.json(data);
+    res.json(healthInputLog);
   });
 };
 
 exports.createHealthInputLog = function(req, res) {
-  const newHealthInputLog = new healthInputLog({...req.body}); //if mongo validates properly this should work to get what was entered by the user when registering
+  const newhealthInputLog = new healthInputLog({...req.body}); 
   
-  newHealthInputLog.save(function(err, data) {
+  newhealthInputLog.save(function(err, data) {
     if (err) {
       res.send(err);
     }
@@ -30,8 +34,8 @@ exports.createHealthInputLog = function(req, res) {
 };
 
 exports.updateHealthInputLog = function(req, res) {
-  healthInputLog.findOneAndUpdate(
-    { _id: req.params.healthInputLogId},
+  healthInputLogModel.findOneAndUpdate(
+    { _id: req.params.healthInputLogId, user_id: req.user._id},
     req.body,
     { new: true },
     function(err, data) {
@@ -44,7 +48,7 @@ exports.updateHealthInputLog = function(req, res) {
 };
 
 exports.deleteHealthInputLog = function(req, res) {
-  healthInputLog.deleteOne({ _id: req.params.healthInputLogId}, function(err) {
+  healthInputLogModel.deleteOne({ _id: req.params.healthInputLogId, user_id: req.user._id}, function(err) {
     if (err) {
       res.send(err);
     }

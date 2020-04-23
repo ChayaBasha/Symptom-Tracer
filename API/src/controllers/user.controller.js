@@ -2,17 +2,19 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user.model');
 const {createToken, findByUserCredentials} = require('../services/auth.service');
 
+const expiresIn = 3600;
 
 exports.registerUser = async function(req, res) {
   const encryptPassword = await bcrypt.hash(req.body.password, 8);
   const newUser = new User({...(req.body), password:encryptPassword});
-  // const token = await createToken(newUser);
+  const accessToken = await createToken(newUser, expiresIn);
   newUser.save(function(err, data) {
     if (err) {
       res.send(err);
     }
-    data.token = token;
-    res.json(data);
+    res
+    .header('access_token', accessToken)
+    .json(data);
   });
 };
 
@@ -22,9 +24,19 @@ exports.login = async function(req, res) {
   if(!user) {
     return res.status(400).send('Not a valid login/password');
   }
-  const token = await createToken(user);
-  res.send({user, token});
+  const accessToken = await createToken(user, expiresIn);
+
+  res
+  .header('access_token', accessToken)
+  .send({
+    auth: true,
+    msg: 'Logged in!',
+    token_type: 'bearer',
+    access_token: accessToken,
+    expires_in: expiresIn
+  });
 } catch (err) {
+  console.log(err);
   res.status(400).send('Not a valid login/password');
 }
 };
@@ -63,4 +75,16 @@ exports.deleteUser = function(req, res) {
     }
     res.json({ msg: 'User has been deleted.' });
   });
+};
+
+exports.logout = async function (req, res) {
+  try {
+  req.user.token = req.user.tokens.filter((token) => {
+    return token.token !== req.token;
+  });
+  await req.user.save();
+  res.send({success: true});
+} catch (err) {
+  res.status(500). send(err);
+}
 };

@@ -5,7 +5,7 @@ const symptomEntryRoutes = express.Router();
 // Routes if there is nothing added to the Path
 
 symptomEntryRoutes
-  .get('/', symptomEntryController.getAllSymptomEntries) 
+  .get('/', symptomEntryController.getAllUserSymptomEntries) 
   .post('/', symptomEntryController.createSymptomEntry); 
 
 symptomEntryRoutes

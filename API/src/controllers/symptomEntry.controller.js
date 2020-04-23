@@ -1,20 +1,24 @@
-const symptomEntry = require('../models/symptomEntry.model').symptomEntryModel;
+const {symptomEntryModel} = require('../models/symptomEntry.model');
 
-exports.getAllSymptomEntries = function(req, res) {
-  symptomEntry.find({}, function(err, data) {
+exports.getAllUserSymptomEntries = function(req, res) {
+  symptomEntryModel.find({user_id:req.user._id}, function(err, symptomEntries) {
     if (err) {
       res.send(err);
+    } else if (symptomEntries) {
+      res.json(symptomEntries);
+    } else {
+      res.status(400).send("Could not get Symptom Entries")
     }
-    res.json(data);
   });
 };
 
 exports.getSymptomEntry = function(req, res) {
-  symptomEntry.findById(req.params.SymptomEntryId, function(err, data) {
+  symptomEntryModel.findOne({_id:req.params.symptomEntryId, user_id: req.user._id}, 
+    function(err, symptomEntry) {
     if (err) {
       res.send(err);
     }
-    res.json(data);
+    res.json(symptomEntry);
   });
 };
 
@@ -30,8 +34,8 @@ exports.createSymptomEntry = function(req, res) {
 };
 
 exports.updateSymptomEntry = function(req, res) {
-  SymptomEntryId.findOneAndUpdate(
-    { _id: req.params.SymptomEntryId},
+  symptomEntryModel.findOneAndUpdate(
+    { _id: req.params.symptomEntryId, user_id: req.user._id},
     req.body,
     { new: true },
     function(err, data) {
@@ -44,7 +48,7 @@ exports.updateSymptomEntry = function(req, res) {
 };
 
 exports.deleteSymptomEntry = function(req, res) {
-  symptomEntry.deleteOne({ _id: req.params.SymptomEntryId}, function(err) {
+  symptomEntryModel.deleteOne({ _id: req.params.symptomEntryId, user_id: req.user._id}, function(err) {
     if (err) {
       res.send(err);
     }

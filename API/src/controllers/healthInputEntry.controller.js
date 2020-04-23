@@ -1,27 +1,31 @@
-const healthInputEntry = require('../models/healthInputEntry.model').healthInputEntryModel;
+const {healthInputEntryModel} = require('../models/healthInputEntry.model');
 
-exports.getAllHealthInputEntries = function(req, res) {
-  helathInputEntry.find({}, function(err, data) {
+exports.getAllUserHealthInputEntries = function(req, res) {
+  healthInputEntryModel.find({user_id:req.user._id}, function(err, healthInputEntries) {
     if (err) {
       res.send(err);
+    } else if (healthInputEntries) {
+      res.json(healthInputEntries);
+    } else {
+      res.status(400).send("Could not get healthInput Entries")
     }
-    res.json(data);
   });
 };
 
 exports.getHealthInputEntry = function(req, res) {
-  helathInputLog.findById(req.params.healthInputEntryId, function(err, data) {
+  healthInputEntryModel.findOne({_id:req.params.healthInputEntryId, user_id: req.user._id}, 
+    function(err, healthInputEntry) {
     if (err) {
       res.send(err);
     }
-    res.json(data);
+    res.json(healthInputEntry);
   });
 };
 
 exports.createHealthInputEntry = function(req, res) {
-  const newHealthInputEntry = new healthInputEntry({...req.body}); //if mongo validates properly this should work to get what was entered by the user when registering
+  const newhealthInputEntry = new healthInputEntry({...req.body}); 
   
-  newHealthInputEntry.save(function(err, data) {
+  newhealthInputEntry.save(function(err, data) {
     if (err) {
       res.send(err);
     }
@@ -30,8 +34,8 @@ exports.createHealthInputEntry = function(req, res) {
 };
 
 exports.updateHealthInputEntry = function(req, res) {
-  healthInputEntry.findOneAndUpdate(
-    { _id: req.params.healthInputEntryId},
+  healthInputEntryModel.findOneAndUpdate(
+    { _id: req.params.healthInputEntryId, user_id: req.user._id},
     req.body,
     { new: true },
     function(err, data) {
@@ -44,7 +48,7 @@ exports.updateHealthInputEntry = function(req, res) {
 };
 
 exports.deleteHealthInputEntry = function(req, res) {
-  helathInputEntry.deleteOne({ _id: req.params.healthInputEntryId}, function(err) {
+  healthInputEntryModel.deleteOne({ _id: req.params.healthInputEntryId, user_id: req.user._id}, function(err) {
     if (err) {
       res.send(err);
     }

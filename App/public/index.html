@@ -29,10 +29,10 @@
                    <br>
                    <br>
                    <label for="password"> Password</label>
-                   <input type="text" id="password" name="password">
+                   <input type="password" id="password" name="password">
                    <br>
                    <br>
-                   <button class='button'>Login</button>
+                   <button class='button' onclick="doLogin(event)">Login</button>
                    <button class='button'><a href="./register.html">Register</button>
 
                 </form>
@@ -41,7 +41,11 @@
             <div class='footer'>
                   
             </div>
-            <script src='./src/server.js'></script>
+            <script src="./src/api.config.js"></script>
+            <script src="./src/simple-storage.js"></script>
+            <script src="./src/service-helpers.js"></script>
+            <script src="./src/auth.service.js"></script>
+            <script src="./src/app.js"></script>
         </body>
     </head>
 </html>

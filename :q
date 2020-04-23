@@ -1,0 +1,25 @@
+Updating backEnd to INclude Additional Authentication Pieces
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch presentation
+# Changes to be committed:
+#	modified:   package.json
+#	modified:   src/controllers/healthInputEntry.controller.js
+#	modified:   src/controllers/healthInputLog.controller.js
+#	modified:   src/controllers/symptomEntry.controller.js
+#	modified:   src/controllers/symptomLog.controller.js
+#	modified:   src/controllers/user.controller.js
+#	modified:   src/index.js
+#	modified:   src/middleware/auth.js
+#	modified:   src/models/healthInputLog.model.js
+#	modified:   src/models/symptomLog.model.js
+#	modified:   src/routes/healthInputEntry.routes.js
+#	modified:   src/routes/healthInputLog.routes.js
+#	modified:   src/routes/symptomEntry.routes.js
+#	modified:   src/routes/symptomLog.routes.js
+#	modified:   src/routes/user.routes.js
+#	modified:   src/services/auth.service.js
+#	modified:   ../App/package-lock.json
+#	modified:   ../App/package.json
+#

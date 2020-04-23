@@ -36,15 +36,19 @@
                    <input type="text" id="password" name="password">
                    <br>
                    <br>
-                   <button class='button'>Register</button>
-                   <button class='button'><a href="./login.html">Cancel</a></button>
+                   <button class='button' onclick="doRegister(event)">Register</button>
+                   <button class='button'><a href="/">Cancel</a></button>
 
                 </form>
             </div>
 
             <div class='footer'>
-                  
             </div>
+            <script src="./src/api.config.js"></script>
+            <script src="./src/simple-storage.js"></script>
+            <script src="./src/service-helpers.js"></script>
+            <script src="./src/auth.service.js"></script>
+            <script src="./src/app.js"></script>
 
         </body>
     </head>
