@@ -1,21 +1,23 @@
 .loginForm {
-    grid-column:3/5;
-    grid-row:4/5;
+    grid-column:2/6;
+    grid-row:3/5;
     justify-self: stretch;
     align-self:center;
     font-family: copperplate;
     padding: 1em;
     text-align: center;
+    color: rgb(214, 103, 241);
 }
 
 .registerForm {
     grid-column:2/6;
-    grid-row:4/6;
+    grid-row:3/5;
     justify-self: center;
     align-self:center;
     font-family: copperplate;
     padding: 1em;
     text-align: center;
+    color: rgb(214, 103, 241);
 }
 
 .logEntryForm {
@@ -26,4 +28,19 @@
     font-family: copperplate;
     padding: 1em;
     text-align: center;
+    color: rgb(214, 103, 241);
+}
+
+.button {
+    background-color: rgb(187, 230,187);
+    border-radius: 8px;
+    border-color: rgb(187, 230,187);
+    font-family: fantasy;
+    color: rgb(214, 103, 241);
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.button :hover {
+    background-color:rgb(219,193,222);
 }

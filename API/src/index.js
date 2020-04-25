@@ -50,9 +50,9 @@ app.use(bodyParser.json());
 // This tells us where to look for different requests 
 // app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
-app.use('/api/symptomEntry', authMiddleware, symptomEntryRoutes);
+app.use('/api/symptomLog/symptomEntry', authMiddleware, symptomEntryRoutes);
 app.use('/api/symptomLog', authMiddleware, symptomLogRoutes);
-app.use('/api/healthInputEntry', authMiddleware, healthInputEntryRoutes);
+app.use('/api/healthInputLog/healthEntry', authMiddleware, healthInputEntryRoutes);
 app.use('/api/healthInputLog', authMiddleware, healthInputLogRoutes);
 
 // Handle 404 requests

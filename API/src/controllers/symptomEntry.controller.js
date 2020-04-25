@@ -23,13 +23,14 @@ exports.getSymptomEntry = function(req, res) {
 };
 
 exports.createSymptomEntry = function(req, res) {
-  const newSymptomEntry = new symptomEntry({...req.body}); 
+  const newSymptomEntry = new symptomEntryModel({...req.body, symptomlog_id:req.symptomLog_id}); 
   
   newSymptomEntry.save(function(err, data) {
     if (err) {
       res.send(err);
-    }
+    } else{
     res.json(data);
+    }
   });
 };
 

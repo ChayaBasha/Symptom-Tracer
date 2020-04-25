@@ -20,22 +20,29 @@ body {
 .container > div {
     background-color: rgba(175, 201, 220,.7);
     padding: 4px;
-    line-height: 100%;
-    color: rgb(88, 123, 155);
+    line-height: 150%;
 }
 
 .header {
     grid-column: 1/6;
     grid-row: 1;
-    font-size:2.5em;
+    font-size:2em;
     font-family:copperplate;
     text-align: center;
+    color: rgb(88,123,155);
 }
 
+.loginOut {
+    font-family:arial;
+    font-size: 0.75em;
+    float:right;
+    margin-right:1em;
+}
 .aside {
     grid-column:1;
     grid-row:2/6;
     text-align:center;
+    color: rgb(88,123,155);
 }
 
 .asideBar {
@@ -46,6 +53,8 @@ body {
     margin: 8px;
     height: 30 px;
     font-weight: bold;
+    justify-self:stretch;
+
 }
 h2 {
     background-color: rgb(187, 230,187);
@@ -60,13 +69,9 @@ a {
     font-family: fantasy;
 }
 
-.navBar {
-    font-family:arial;
-    text-align: center;
-    align-self:center;
-    grid-column: 5/6;
-    grid-row: 1;
-    font-size: 1em;
+
+ul {
+    list-style: none;
 }
 
 li a:hover {
@@ -104,21 +109,27 @@ a:hover {
     text-align: center;
 }
 
-.button {
-    background-color: rgb(187, 230,187);
-    border-radius: 8px;
-    border-color: rgb(187, 230,187);
-    font-family: fantasy;
-    color: rgb(88, 123, 155);
-}
 
-.button :hover {
-    background-color:rgb(219,193,222);
-}
 
 
 .footer {
     grid-column:1/6;
     grid-row:6;
     text-align: center;
+}
+
+.logView{
+    grid-column:2/6;
+    grid-row: 3/6;
+    color: rgb(214, 103, 241);
+    font-family: fantasy;
+    padding: 8px;
+}
+
+.logNavBar {
+    grid-column: 2/6;
+    grid-row:2;
+    font-family: fantasy;
+    font-weight: bold;
+    list-style: none;
 }
