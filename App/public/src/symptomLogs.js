@@ -9,30 +9,33 @@
       const loadingEntryElement = symptomLogElement.childNodes[1];
   
       const ul = document.createElement('ul');
-      ul.className='asideBar';
+      ul.className="logList";
   
       symptomLogElement.replaceChild(ul, loadingEntryElement); 
   
       symptomLogs.map((symptomLog) => {
        
         const li = document.createElement('li');
+        li.className="logListItem";
         const block = document.createElement('div');
+        block.className="logBlock";
 
         //TO DO get it so you can click each tiem 
         li.addEventListener('click', function(_mouseEvent){
           showSymptomEntries(symptomLog._id);
         }
         ); 
+      
+        const nameSpan = document.createElement('div');
+        nameSpan.className = 'logName flex-child';
+        nameSpan.innerText = symptomLog.symptomLogName;
+
         const addEntry = document.createElement('button')
-        addEntry.className = 'symptom-add flex-child';
-        addEntry.innerText = "+";
+        addEntry.className = 'logList';
+        addEntry.innerText = " + ";
         addEntry.addEventListener('click', function(_mouseEvent){
           window.location.href=`./newSymptomEntry.html?symptomLogId=${symptomLog._id}&symptomLogName=${encodeURIComponent(symptomLog.symptomLogName)}`;
         })
-
-        const nameSpan = document.createElement('div');
-        nameSpan.className = 'symptomLog-name flex-child';
-        nameSpan.innerText = symptomLog.symptomLogName;
   
         block.appendChild(nameSpan);
         block.appendChild(addEntry);
@@ -66,14 +69,8 @@ async function showSymptomEntries(symptomLogId) {
     symptomEntries.map((symptomEntry) => {
      
       const li = document.createElement('li');
-      // li.className='asideBar';
-      const block = document.createElement('div');
-      // block.className='asideBar'
-      //TO DO get it so you can click each tiem 
-      // li.addEventListener('click', function(_mouseEvent){
-      //   getSymptomLog(symptomLog._id);
-      // const symptomLogNameSpan = document.createElement('div');
-      // symptomLogNameSpan.innerText = symptomLog.symptomLogName;
+      
+      const block = document.createElement('div')
       
       const onsetSpan = document.createElement('div');
       onsetSpan.innerText = symptomEntry.symptomOnset;

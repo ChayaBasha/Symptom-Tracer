@@ -8,10 +8,11 @@ Symptom Tracer is an app designed to allow you to track all of your health sympt
 - Add New Symptom Log
 - Display Symptom Logs
 - Add Symptom Entry 
+- Display Symptom Entries for Symptom Log
+- token expires and redirects to root 
 
 # Features Under Development
 - Examples When not Logged In
-- Display Symptom Entries for Symptom Log
 - Update Symptom Etnries
 - Update Symptom Log
 - Update User
@@ -21,9 +22,12 @@ Symptom Tracer is an app designed to allow you to track all of your health sympt
 
 # To Do
 - Fix Log Nav Bar
-- Fix Auto direct when token logs out
 - get there to be Date and Time for Onset 
 - Fix defualt date set as null when nothing entered
+- Symptom Entry Default when no entries yet upon click 
+- fix display of entries 
+- fix add entry buttons
+- fix add symptom log button
 
 
 # Instructions for the APP
