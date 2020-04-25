@@ -16,16 +16,24 @@ function getSymptomLog(symptomLogId) {
   }
 }
 
-function deleteEntry (symptomLogId) {
+function deleteEntry(symptomLogId) {
   return _delete(`${SYMPTOMLOG_API}/${symptomLogId}`);
 }
 
-const SYMPTOMENTRY_API =`${SYMPTOMLOG_API}/symptomEntry`;
+//symptom Entry CRUD Functions 
 
-function getSymptomEntries() {
-    return _get(`${SYMPTOMENTRY_API}`).then(res => res.json())
-  };
+const SYMPTOMENTRY_API = function (symptomLogId) {
+  return `${SYMPTOMLOG_API}/${symptomLogId}/symptomEntry`;
+};
+
+function getSymptomEntries(symptomLogId) {
+  return _get(SYMPTOMENTRY_API(symptomLogId)).then(res => res.json())
+};
 
 function addSymptomEntry(entryData) {
-  return _post(SYMPTOMENTRY_API, entryData);
+  return _post(SYMPTOMENTRY_API(entryData.symptomLogId), entryData).then(res =>{
+    if(res.status === 400){
+      console.log(res.json);
+    }
+  });
 };

@@ -2,18 +2,29 @@
 # About Symptom Tracer
 Symptom Tracer is an app designed to allow you to track all of your health symptoms from weird pains in your toes to sporatic dizziness as well as some potential triggers in one place.
 
+# Features that Work
+- Login
+- Register
+- Add New Symptom Log
+- Display Symptom Logs
+- Add Symptom Entry 
+
 # Features Under Development
 - Examples When not Logged In
-- Add New Symptom Log
-- Display Users Symptom Logs
 - Display Symptom Entries for Symptom Log
-- Add Symptom Entry
+- Update Symptom Etnries
+- Update Symptom Log
+- Update User
+- Delete Symptom Log
+- Delted Symptom Entry
+- All Features for Helath Inputs 
 
 # To Do
-- change backend models for entries
-- front end forms to add logs and entries
-- view for viewing logs
--tweaks
+- Fix Log Nav Bar
+- Fix Auto direct when token logs out
+- get there to be Date and Time for Onset 
+- Fix defualt date set as null when nothing entered
+
 
 # Instructions for the APP
 

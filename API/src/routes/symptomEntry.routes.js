@@ -1,7 +1,7 @@
 const symptomEntryController = require('../controllers/symptomEntry.controller');
 const express = require('express');
 
-const symptomEntryRoutes = express.Router();
+const symptomEntryRoutes = express.Router({mergeParams: true});
 // Routes if there is nothing added to the Path
 
 symptomEntryRoutes
