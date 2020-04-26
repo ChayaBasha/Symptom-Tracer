@@ -1,48 +1,62 @@
 <!DOCTYPE html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="css/grid.css">
-        <link rel="stylesheet" type="text/css" href="css/logDisplay.css">
 
-        <body class='container'>
-            <div class='header'>
-                Welcome to Symptom Tracer 
-                <a class="loginOut" id="logout" onclick="doLogout(event)" href="./">Logout</a>
-            </div>
-            
-            <div class="aside">
-                <h2> My Logs</h2>
-                <h3>Symptom Categories <a href="./newSymptomLog.html">+</a></h3>
-                <!-- this should change to display the user's logs -->
-               <div id="symptomLogs">
-                   <div> No Logs to Display</div>
-               </div>
-               <h3>Health Inputs</h3>
-               <div id="healthInputLogs">
-                   <div> Loading...</div>
-               </div>
-            </div>
-            <div class="logNavBar">
-                <li>Log View</li>
-                <li>Date View</li>
-            </div>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/grid.css">
+    <link rel="stylesheet" type="text/css" href="css/logDisplay.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/entryView.css"> -->
 
-            <div class='logView'>
-                <div id="symptomEntries">
-                    <div> Click on a Log to View Entries </div>
-            </div>
+<body class='container'>
+    <div class='header'>
+        Welcome to Symptom Tracer
+        <a class="loginOut" id="logout" onclick="doLogout(event)" href="./">Logout</a>
+    </div>
 
-            <div class='footer'>
-                  
-            </div>
-            <script src="./src/api.config.js"></script>
-            <script src="./src/simple-storage.js"></script>
-            <script src="./src/service-helpers.js"></script>
-            <script src="./src/auth.service.js"></script>
-            <script src="./src/symptomLog.service.js"></script>
-            <script src="./src/route-guard.js"></script>
-            <script src="./src/symptomLogs.js"></script>
-            <script src="./src/app.js"></script>
-        </body>
-    </head>
+    <div class="aside">
+        <h2> My Logs</h2>
+        <h3>Symptom Categories <a href="./newSymptomLog.html">+</a></h3>
+        <!-- this should change to display the user's logs -->
+        <div id="symptomLogs">
+            <div> No Logs to Display</div>
+        </div>
+        <h3>Health Inputs</h3>
+        <div id="healthInputLogs">
+            <div> Loading...</div>
+        </div>
+    </div>
+    <div class="logView">
+        <div class="logNavBar">
+            <li>Log View</li>
+            <li>Date View</li>
+        </div>
+
+
+
+
+        <table class="entryList" id="symptomEntries">
+            <tr class=entryHeadings>
+            <th>Onset Date </th>
+            <th> Description </th>
+            <th>Duration </th>
+            <th>Severity </th>
+            </tr>
+            <!-- <div class="loadingElement" id="entryDefaultElement"> Click on a Log to View Entries </div> -->
+        </div>
+
+    </div>
+
+    <div class='footer'>
+
+    </div>
+    <script src="./src/api.config.js"></script>
+    <script src="./src/simple-storage.js"></script>
+    <script src="./src/service-helpers.js"></script>
+    <script src="./src/auth.service.js"></script>
+    <script src="./src/symptomLog.service.js"></script>
+    <script src="./src/route-guard.js"></script>
+    <script src="./src/symptomLogs.js"></script>
+    <script src="./src/app.js"></script>
+</body>
+</head>
+
 </html>

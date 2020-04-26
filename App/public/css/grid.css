@@ -8,7 +8,7 @@ body {
 .container {
     display: grid;
     grid-template-columns: [first] 20% [second] 20% [third] auto [fourth] 20% [fifth] 20%;
-    grid-template-rows:[row1] 8% [row2] 6% [row3] auto [row4] 15% [row5] 15% [row6] 10%;
+    grid-template-rows:[row1] 8% [row2] 6% [row3] 6% [row4] auto [row5] 15% [row6] 10%;
     background-color: white;
     position: absolute;
     width: 100%;
@@ -109,27 +109,20 @@ a:hover {
     text-align: center;
 }
 
-
-
-
 .footer {
     grid-column:1/6;
     grid-row:6;
     text-align: center;
 }
 
-.logView{
-    grid-column:2/6;
-    grid-row: 3/6;
-    color: rgb(214, 103, 241);
-    font-family: fantasy;
-    padding: 8px;
-}
-
-.logNavBar {
+.logView {
     grid-column: 2/6;
-    grid-row:2;
-    font-family: fantasy;
-    font-weight: bold;
-    list-style: none;
+    grid-row: 2/6;
+    display: grid;
+    grid-template-columns: [first] 20% [second] auto [third] 15% [fourth] 15%;
+    grid-template-rows: [first] 5% [second] 5% [third] auto [fourth] 5%;
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    color: rgb(214, 103, 241);
 }

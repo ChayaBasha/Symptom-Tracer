@@ -22,6 +22,10 @@ const doAddSymptomEntry = async (event) => {
       alert('Please enter a symptom description.');
       return;
     }
+    if(!symptomOnset) {
+      alert('you must enter a date and time of onset');
+      return;
+    }
   
     const res = await addSymptomEntry({ symptomLogId, symptomDescription, symptomOnset, symptomDuration, symptomSeverity});
   
