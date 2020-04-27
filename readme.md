@@ -21,13 +21,14 @@ Symptom Tracer is an app designed to allow you to track all of your health sympt
 - All Features for Helath Inputs 
 
 # To Do
-- Fix Log Nav Bar
-- get there to be Date and Time for Onset 
+
 - Fix defualt date set as null when nothing entered
 - Symptom Entry Default when no entries yet upon click 
-- fix display of entries 
 - fix add entry buttons
 - fix add symptom log button
+- fix footer
+- Fix log view
+- Fix logNav buttonsa nd funcitonality 
 
 
 # Instructions for the APP
