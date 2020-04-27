@@ -13,9 +13,15 @@ exports.registerUser = async function (req, res) {
       res.send(err);
     } else {
       res
-        .header('access_token', accessToken)
-        .json(data);
-    };
+      .header('access_token', accessToken)
+      .send({
+        auth: true,
+        msg: 'Registered and logged in!',
+        token_type: 'bearer',
+        access_token: accessToken,
+        expires_in: expiresIn
+      });
+    }
   });
 };
 

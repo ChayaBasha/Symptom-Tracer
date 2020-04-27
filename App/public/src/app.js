@@ -1,3 +1,11 @@
+function setToken(body) {
+     
+    const {auth, access_token} = body;
+
+    setStorage('isAuth', auth);
+    setStorage('access_token', access_token);
+};
+
 const doLogin = function(event) {
     event.preventDefault();
     const userName = document.getElementById('userName').value;
@@ -7,32 +15,37 @@ const doLogin = function(event) {
       userName: userName,
       password: password
     }).then(res => res.json())
-    .then(body => {
-     
-      const {auth, access_token} = body;
-  
-      setStorage('isAuth', auth);
-      setStorage('access_token', access_token);
-        window.location.href = 'home.html';
-    });
-    
-    };
-  
+    .then(setToken).then(() =>
+      window.location.href = 'home.html'
+    );
+};
+
   const doRegister = function(event) {
     event.preventDefault();
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const userName = document.getElementById('userName').value;
     const password = document.getElementById('password').value;
+
+    if(!userName) {
+      alert("you must enter a username");
+      return;
+    };
+
+    if(!password) {
+      alert("you must enter a password");
+      return;
+    };
   
     register({
       firstName: firstName,
       lastName: lastName,  
       userName: userName,
       password: password
-    }).then(function(res) {
-      window.location.href = 'home.html';
-    });
+    }).then(res => res.json())
+    .then(setToken).then(() =>
+      window.location.href = 'home.html'
+    );
   };
   
   const doLogout = function(event) {
