@@ -10,7 +10,7 @@ healthInputLogRoutes
 
 healthInputLogRoutes
   .get('/:healthInputLogId', healthInputLogController.getHealthInputLog)
-  .post('/:healthInputLogId', healthInputLogController.updateHealthInputLog)
+  .put('/:healthInputLogId', healthInputLogController.updateHealthInputLog)
   .delete('/:healthInputLogId', healthInputLogController.deleteHealthInputLog);
 
   module.exports = healthInputLogRoutes;

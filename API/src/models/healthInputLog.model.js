@@ -10,8 +10,6 @@ const healthInputLogSchema = new Schema({
     type: String,
     default: 'Unamed Health Input Log'
   },
-  //I imported the schmea...according to mongoose docs, you should be able to create nested schemas using subdocuments 
-  healthInputEntries: [healthInputEntrySchema],
 
   dateCreated: {
     type: Date,

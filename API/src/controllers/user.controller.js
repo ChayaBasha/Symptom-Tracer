@@ -48,18 +48,18 @@ exports.login = async function (req, res) {
   }
 };
 
-exports.getUser = function (req, res) {
-  User.findById(req.params.userId, function (err, data) {
-    if (err) {
-      res.send(err);
-    } else if (data) {
-      const { userName } = data;
-      res.json({ userName });
-    } else {
-      res.status(400).send("No user")
-    }
-  });
-};
+// exports.getUser = function (req, res) {
+//   User.findById(req.params.userId, function (err, data) {
+//     if (err) {
+//       res.send(err);
+//     } else if (data) {
+//       const { userName } = data;
+//       res.json({ userName });
+//     } else {
+//       res.status(400).send("No user")
+//     }
+//   });
+// };
 
 exports.updateUser = async function (req, res) {
   if (req.body.password) {
@@ -82,7 +82,7 @@ exports.updateUser = async function (req, res) {
 };
 
 exports.deleteUser = function (req, res) {
-  User.deleteOne({ _id: req.params.userId }, function (err) {
+  User.deleteOne({ _id: req.user._id }, function (err) {
     if (err) {
       res.send(err);
     }

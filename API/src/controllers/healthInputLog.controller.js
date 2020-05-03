@@ -1,7 +1,7 @@
-const {healthInputLogModel} = require('../models/healthInputLog.model');
+const { healthInputLogModel } = require('../models/healthInputLog.model');
 
-exports.getAllUserHealthInputLogs = function(req, res) {
-  healthInputLogModel.find({user_id:req.user._id}, function(err, healthInputLogs) {
+exports.getAllUserHealthInputLogs = function (req, res) {
+  healthInputLogModel.find({ user_id: req.user._id }, function (err, healthInputLogs) {
     if (err) {
       res.send(err);
     } else if (healthInputLogs) {
@@ -12,33 +12,34 @@ exports.getAllUserHealthInputLogs = function(req, res) {
   });
 };
 
-exports.getHealthInputLog = function(req, res) {
-  healthInputLogModel.findOne({_id:req.params.healthInputLogId, user_id: req.user._id}, 
-    function(err, healthInputLog) {
-    if (err) {
-      res.send(err);
-    }
-    res.json(healthInputLog);
-  });
+exports.getHealthInputLog = function (req, res) {
+  healthInputLogModel.findOne({ _id: req.params.healthInputLogId, user_id: req.user._id },
+    function (err, healthInputLog) {
+      if (err) {
+        res.send(err);
+      }
+      res.json(healthInputLog);
+    });
 };
 
-exports.createHealthInputLog = function(req, res) {
-  const newhealthInputLog = new healthInputLogModel({...req.body}); 
-  
-  newhealthInputLog.save(function(err, data) {
+exports.createHealthInputLog = function (req, res) {
+  const newhealthInputLog = new healthInputLogModel({ ...req.body, user_id: req.user._id });
+
+  newhealthInputLog.save(function (err, data) {
     if (err) {
       res.send(err);
     }
     res.json(data);
+    console.log(JSON.stringify(data));
   });
 };
 
-exports.updateHealthInputLog = function(req, res) {
+exports.updateHealthInputLog = function (req, res) {
   healthInputLogModel.findOneAndUpdate(
-    { _id: req.params.healthInputLogId, user_id: req.user._id},
+    { _id: req.params.healthInputLogId, user_id: req.user._id },
     req.body,
     { new: true },
-    function(err, data) {
+    function (err, data) {
       if (err) {
         res.send(err);
       }
@@ -47,11 +48,12 @@ exports.updateHealthInputLog = function(req, res) {
   );
 };
 
-exports.deleteHealthInputLog = function(req, res) {
-  healthInputLogModel.deleteOne({ _id: req.params.healthInputLogId, user_id: req.user._id}, function(err) {
+exports.deleteHealthInputLog = function (req, res) {
+  healthInputLogModel.deleteOne({ _id: req.params.healthInputLogId, user_id: req.user._id }, function (err) {
     if (err) {
       res.send(err);
+    } else {
+      res.status(200).send('Log has been deleted.');
     }
-    res.json({ msg: 'Entry has been deleted.' });
   });
 };

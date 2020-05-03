@@ -7,9 +7,9 @@ const userRoutes = express.Router();
 userRoutes 
   .post('/', userController.registerUser)
   .put('/update', verifyToken, userController.updateUser) 
-  .get('/:userId', userController.getUser)
+  // .get('/:userId', userController.getUser)
   .post('/login', userController.login)
-  .delete('/:userId', userController.deleteUser)
+  .delete('/', verifyToken, userController.deleteUser)//this should be used for testing only 
   .post('/logout', userController.logout);
 module.exports = userRoutes;
 
