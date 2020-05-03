@@ -10,7 +10,7 @@ symptomEntryRoutes
 
 symptomEntryRoutes
   .get('/:symptomEntryId', symptomEntryController.getSymptomEntry)
-  .post('/:symptomEntryId', symptomEntryController.updateSymptomEntry)
+  .put('/:symptomEntryId', symptomEntryController.updateSymptomEntry)
   .delete('/:symptomEntryId', symptomEntryController.deleteSymptomEntry);
 
 module.exports = symptomEntryRoutes;

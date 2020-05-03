@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/grid.css">
+        <link rel="stylesheet" type="text/css" href="css/forms.css">
+
+        <body class='container'>
+            <div class='header'>
+                Welcome to Symptom Tracer 
+                <a class="loginOut" id="logout" onclick="doLogout(event)" href="./">Logout</a>
+            </div>
+            <div class="aside">
+                <h2> My Logs</h2>
+                <h3>Symptom Categories <a href="./newSymptomLog.html">+</a></h3>
+                
+               <div id="symptomLogs">
+                   <div> No Logs to Display</div>
+               </div>
+               <h3>Health Inputs</h3>
+               <div id="healthInputLogs">
+                   <div> Loading...</div>
+               </div>
+            </div>
+            
+            <div class='logEntryForm'>
+                <form>
+                    <h1 id="symptomLogName"></h1>
+                    <h2>Edit Symptom</h2>
+                    <label for="symptomDescription"> Description</label>
+                   <input type="text" id="symptomDescription" name="symptomDescription">
+                   <br>
+                   <label for="symptomOnset"> Onset</label>
+                   <input type="datetime-local" id="symptomOnset" name="symptomOnset">
+                   <label for="symptomDuration"> Duration</label>
+                   <input type="number" id="symptomDuration" name="symptomDuration" min="1" max="60">
+                   <label for="symptomSeverity"> Severity</label>
+                   <input type="number"  id="symptomSeverity" name="symptomSeverity" min="1" max="10">
+                   <br>
+                   <br>
+                   <button class='button' onclick="doUpdateSymptomEntry(event)">Update</button>
+                   <button class='button'><a href="./home.html">Cancel</a></button>
+
+                </form>
+        
+            </div>
+
+            <div class='footer'>
+            </div>
+            <script src="./src/api.config.js"></script>
+            <script src="./src/simple-storage.js"></script>
+            <script src="./src/service-helpers.js"></script>
+            <script src="./src/auth.service.js"></script>
+            <script src="./src/symptomLog.service.js"></script>
+            <script src="./src/route-guard.js"></script>
+            <script src="./src/symptomLogs.js"></script>
+            <script src="./src/updateSymptomEntry.js"></script>
+
+        </body>
+    </head>
+</html>

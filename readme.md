@@ -14,20 +14,14 @@ Symptom Tracer is an app designed to allow you to track all of your health sympt
 - Delete Symptom Log
 - Update User
 - Update Symptom Log
+- Update Symptom Etnries
 
 # Features Under Development
 - Examples When not Logged In
-- Update Symptom Etnries
 - All Features for Helath Inputs 
 
 # To Do
 
-- Fix defualt date set as null when nothing entered
-- Symptom Entry Default when no entries yet upon click 
-- fix add entry buttons
-- fix add symptom log button
-- fix footer
-- Fix log view
 - refactor for organization 
 
 

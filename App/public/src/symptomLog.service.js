@@ -50,9 +50,6 @@ const SYMPTOMENTRY_API = function (symptomLogId) {
 function getSymptomEntries(symptomLogId) {
   return _get(SYMPTOMENTRY_API(symptomLogId)).then(async (res) => {
     const responseJson = await res.json();
-    console.log(responseJson);
-    responseJson.forEach(item => item.symptomOnset = new Date(item.symptomOnset).toLocaleString());
-    console.log(responseJson);
     return responseJson;
   });
 };
@@ -63,6 +60,9 @@ function addSymptomEntry(entryData) {
       console.log(res.json);
     }
   });
+};
+function updateSymptomEntry(symptomLogId, symptomEntryId, entryData) {
+  return _put(`${SYMPTOMENTRY_API(symptomLogId)}/${symptomEntryId}`, entryData).then(res => res.json());
 };
 
 async function deleteSymptomEntry(entryData) {

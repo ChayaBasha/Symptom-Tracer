@@ -3,6 +3,11 @@ const urlParams = new URLSearchParams(window.location.search);
 const symptomLogName = urlParams.get("symptomLogName");
 showSymptomLogName(symptomLogName); 
 
+const now = new Date()
+now.setSeconds(0, 0);
+
+document.getElementById('symptomOnset').value = now.toISOString().slice(0, -1);
+
 const doAddSymptomEntry = async (event) => {
   const urlParams = new URLSearchParams(window.location.search);
   const symptomLogId = urlParams.get("symptomLogId");

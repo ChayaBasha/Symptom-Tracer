@@ -99,6 +99,21 @@ async function showSymptomEntries(symptomLogId) {
 
       const tr = document.createElement('tr');
       tr.className = "entryListItem";
+      tr.addEventListener('click', function(_mouseEvent){
+        window.location.href=`/updateSymptomEntry.html?symptomLogId=${
+            symptomEntry.symptomLog_id
+          }&symptomEntryId=${
+            symptomEntry._id
+          }&symptomOnset=${
+            encodeURIComponent(symptomEntry.symptomOnset)
+          }&symptomDescription=${
+            encodeURIComponent(symptomEntry.symptomDescription)
+          }&symptomDuration=${
+            encodeURIComponent(symptomEntry.symptomDuration)
+          }&symptomSeverity=${
+            encodeURIComponent(symptomEntry.symptomSeverity)
+          }`;
+      })
 
       const deleteButton = document.createElement('td');
       deleteButton.className = "fa fa-minus";
@@ -112,7 +127,7 @@ async function showSymptomEntries(symptomLogId) {
       });
 
       const onsetSpan = document.createElement('td');
-      onsetSpan.innerText = symptomEntry.symptomOnset;
+      onsetSpan.innerText =  new Date(symptomEntry.symptomOnset).toLocaleString();
 
       const descriptionSpan = document.createElement('td');
       descriptionSpan.innerText = symptomEntry.symptomDescription;
