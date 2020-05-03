@@ -20,48 +20,79 @@
       const block = document.createElement('div');
       block.className = "logBlock";
 
+
       li.addEventListener('click', function (_mouseEvent) {
         showSymptomEntries(symptomLog._id);
-      }
-      );
+        showSymptomLogName(symptomLog.symptomLogName);
+        addEntryLocation = `/newSymptomEntry.html?symptomLogId=${symptomLog._id}&symptomLogName=${encodeURIComponent(symptomLog.symptomLogName)}`;
+        addUpdateLocation = `/updateSymptomLog.html?symptomLogId=${symptomLog._id}&symptomLogName=${encodeURIComponent(symptomLog.symptomLogName)}`;
+        const deleteSymptomLogButton = document.getElementById("deleteLog");
+        deleteSymptomLogButton.addEventListener('click', function (_mouseEvent) {
+          deleteSymptomLog(symptomLog).then(res => {
+            console.log(res.status);
+            if (res && res.status === 200) {
+              li.remove();
+            }
+          })
+        });
+      })
 
       const nameSpan = document.createElement('div');
       nameSpan.className = 'logName flex-child';
       nameSpan.innerText = symptomLog.symptomLogName;
 
-      const addEntry = document.createElement('button')
-      addEntry.className = 'logList';
-      addEntry.innerText = " + ";
-      addEntry.addEventListener('click', function (_mouseEvent) {
-        window.location.href = `./newSymptomEntry.html?symptomLogId=${symptomLog._id}&symptomLogName=${encodeURIComponent(symptomLog.symptomLogName)}`;
-      })
-
       block.appendChild(nameSpan);
-      block.appendChild(addEntry);
 
       li.appendChild(block);
       ul.appendChild(li);
 
     });
+
   }
 })();
 
 
-//this is to get the symptom entries
+//this is to load everything on the symptom log page with entries and nav
+let addEntryLocation = undefined;
+const addEntry = document.getElementById('addEntry');
+if (addEntry) {
+  addEntry.addEventListener('click', function (_mouseEvent) {
+    if (addEntryLocation) {
+      window.location.href = addEntryLocation
+
+    }
+  });
+}
+let addUpdateLocation = undefined;
+const symptomLogHeader = document.getElementById('symptomLogName');
+if (symptomLogHeader) {
+  symptomLogHeader.addEventListener('click', function (_mouseEvent) {
+    if (addUpdateLocation) {
+      window.location.href = addUpdateLocation;
+    }
+  })
+};
 
 async function showSymptomEntries(symptomLogId) {
-
 
   const symptomEntries = await getSymptomEntries(symptomLogId);
   console.log(symptomEntries);
 
-  if (symptomEntries.length) {
-    const symptomEntryElement = document.getElementById('symptomEntries');
+  const defaultPlaceHolderElement = document.getElementById("defaultPlaceHolder");
+  defaultPlaceHolderElement.setAttribute("hidden", null);
 
-    const oldEntries = symptomEntryElement.querySelectorAll(".entryListItem");
-    oldEntries.forEach((oldEntry) => {
-      symptomEntryElement.removeChild(oldEntry)
-    });
+  const symptomEntryElement = document.getElementById('symptomEntries');
+  symptomEntryElement.removeAttribute("hidden");
+
+  const logNavBar = document.getElementById("logNavBar");
+  logNavBar.removeAttribute("hidden");
+
+  const oldEntries = symptomEntryElement.querySelectorAll(".entryListItem");
+  oldEntries.forEach((oldEntry) => {
+    symptomEntryElement.removeChild(oldEntry)
+  });
+
+  if (symptomEntries.length) {
 
     //Create Table with Symptom Etnries 
     symptomEntries.map((symptomEntry) => {
@@ -102,6 +133,22 @@ async function showSymptomEntries(symptomLogId) {
       symptomEntryElement.appendChild(tr);
     });
   } else {
-    console.log('to add an entry click +');
+    const tr = document.createElement('tr');
+    tr.className = "entryListItem";
+
+    const spacerColumn = document.createElement('td');
+    spacerColumn.innerText = "";
+
+    const spacerColumn2 = document.createElement('td');
+    spacerColumn2.innerText = "";
+
+    const noEntries = document.createElement('td');
+    noEntries.innerText = "There are no Entries to Display"
+
+    tr.appendChild(spacerColumn);
+    tr.appendChild(spacerColumn2);
+    tr.appendChild(noEntries);
+
+    symptomEntryElement.appendChild(tr);
   }
 };

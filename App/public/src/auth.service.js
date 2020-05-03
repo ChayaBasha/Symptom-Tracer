@@ -6,7 +6,9 @@ function register(formData) {
 function login(formData) {
   return _post(`${USER_API}/login`, formData);
 };
-
+function updateUser(formData) {
+  _put(`${USER_API}/update`, formData);
+}
 function logout() {
   clearStorage('isAuth');
   clearStorage('access_token');

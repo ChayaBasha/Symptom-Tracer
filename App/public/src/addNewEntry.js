@@ -1,9 +1,4 @@
-function showSymptomLogName(symptomLogName){
-  const symptomLogNameElement = document.getElementById('symptomLogName');
-  if(symptomLogNameElement) {
-    symptomLogNameElement.textContent=symptomLogName;
-  }
-};
+
 const urlParams = new URLSearchParams(window.location.search);
 const symptomLogName = urlParams.get("symptomLogName");
 showSymptomLogName(symptomLogName); 

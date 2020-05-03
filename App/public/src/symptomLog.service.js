@@ -17,11 +17,31 @@ function getSymptomLog(symptomLogId) {
   }
 };
 
-function deleteEntry(symptomLogId) {
-  return _delete(`${SYMPTOMLOG_API}/${symptomLogId}`);
+function deleteSymptomLog(entryData) {
+  const symptomLogId = entryData._id;
+  return _delete(`${SYMPTOMLOG_API}/${symptomLogId}`).then(res => {
+    if(res && res.status==200) {
+      alert('Symptom Log deleted')
+    } else {
+      throw new Error ('could not remove symptom log at this time');
+    }
+    console.log(res);
+    return res;
+  })
+};
+
+function updateSymptomLog(symptomLogId, entryData) {
+  return _put(`${SYMPTOMLOG_API}/${symptomLogId}`, entryData).then(res => res.json());
 }
 
 //symptom Entry CRUD Functions 
+
+function showSymptomLogName(symptomLogName){
+  const symptomLogNameElement = document.getElementById('symptomLogName');
+  if(symptomLogNameElement) {
+    symptomLogNameElement.textContent=symptomLogName;
+  }
+};
 
 const SYMPTOMENTRY_API = function (symptomLogId) {
   return `${SYMPTOMLOG_API}/${symptomLogId}/symptomEntry`;

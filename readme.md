@@ -2,7 +2,7 @@
 # About Symptom Tracer
 Symptom Tracer is an app designed to allow you to track all of your health symptoms from weird pains in your toes to sporatic dizziness as well as some potential triggers in one place.
 
-# Features that Work
+# Features that Work (all e2e tested)
 - Login
 - Register
 - Add New Symptom Log
@@ -11,13 +11,13 @@ Symptom Tracer is an app designed to allow you to track all of your health sympt
 - Display Symptom Entries for Symptom Log
 - token expires and redirects to root 
 - Delete Symptom Entry
+- Delete Symptom Log
+- Update User
+- Update Symptom Log
 
 # Features Under Development
 - Examples When not Logged In
 - Update Symptom Etnries
-- Update Symptom Log
-- Update User
-- Delete Symptom Log
 - All Features for Helath Inputs 
 
 # To Do

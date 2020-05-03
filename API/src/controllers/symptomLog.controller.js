@@ -52,7 +52,6 @@ exports.deleteSymptomLog = function(req, res) {
   symptomLogModel.deleteOne({ _id: req.params.symptomLogId, user_id: req.user._id}, function(err) {
     if (err) {
       res.send(err);
-    }
-    res.json({ msg: 'Entry has been deleted.' });
+    } else res.status(200).send('Log was deleted');
   });
 };

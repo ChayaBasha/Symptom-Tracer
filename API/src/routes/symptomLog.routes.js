@@ -10,7 +10,7 @@ symptomLogRoutes
 
 symptomLogRoutes
   .get('/:symptomLogId', symptomLogController.getSymptomLog)
-  .post('/:symptomLogId', symptomLogController.updateSymptomLog)
+  .put('/:symptomLogId', symptomLogController.updateSymptomLog)
   .delete('/:symptomLogId', symptomLogController.deleteSymptomLog);
 
 module.exports = symptomLogRoutes;

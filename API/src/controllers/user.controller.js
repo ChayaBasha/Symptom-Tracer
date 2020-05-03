@@ -13,14 +13,14 @@ exports.registerUser = async function (req, res) {
       res.send(err);
     } else {
       res
-      .header('access_token', accessToken)
-      .send({
-        auth: true,
-        msg: 'Registered and logged in!',
-        token_type: 'bearer',
-        access_token: accessToken,
-        expires_in: expiresIn
-      });
+        .header('access_token', accessToken)
+        .send({
+          auth: true,
+          msg: 'Registered and logged in!',
+          token_type: 'bearer',
+          access_token: accessToken,
+          expires_in: expiresIn
+        });
     }
   });
 };
@@ -61,16 +61,22 @@ exports.getUser = function (req, res) {
   });
 };
 
-exports.updateUser = function (req, res) {
+exports.updateUser = async function (req, res) {
+  if (req.body.password) {
+    req.body.password = await bcrypt.hash(req.body.password, 8);
+  }
+
   User.findOneAndUpdate(
     { _id: req.user._id },
     req.body,
     { new: true },
     function (err, data) {
       if (err) {
-        res.send(err);
+        console.log(err);
+        res.status(500).send("there was a problem");
+      } else {
+        res.send('succesfully updated');
       }
-      res.send('succesfully updated');
     }
   );
 };

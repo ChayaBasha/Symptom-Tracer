@@ -10,12 +10,12 @@
 <body class='container'>
     <div class='header'>
         Welcome to Symptom Tracer
-        <a class="loginOut" id="logout" onclick="doLogout(event)" href="./">Logout</a>
+        <a class="loginOut" id="logout" onclick="doLogout(event)" href="/">Logout</a>
     </div>
 
     <div class="aside">
         <h2> My Logs</h2>
-        <h3>Symptom Categories <a href="./newSymptomLog.html">+</a></h3>
+        <h3>Symptom Categories <a href="/newSymptomLog.html">+</a></h3>
         <!-- this should change to display the user's logs -->
         <div id="symptomLogs">
             <div> No Logs to Display</div>
@@ -26,29 +26,31 @@
         </div>
     </div>
     <div class="logView">
-        <div class="logNavBar">
-            <!-- <li>Log View</li>
-            <li>Date View</li> -->
+        <div id="defaultPlaceHolder">
+            Click on/Create Log to display Log Details
+        </div>
+        <div hidden class="logNavBar" id="logNavBar">
+            <i id="deleteLog" class="fa fa-minus" title="delete log"></i>
+            <h1 id="symptomLogName"></h1>
+            <i id="addEntry" class="fa fa-plus" title="add entry"></i>
         </div>
 
-
-
-
-        <table class="entryList" id="symptomEntries">
+        <table hidden class="entryList" id="symptomEntries">
             <tr class=entryHeadings>
                 <th></th>
-            <th>Onset Date </th>
-            <th> Description </th>
-            <th>Duration (in minutes) </th>
-            <th>Severity (1-10) </th>
+                <th>Onset Date </th>
+                <th> Description </th>
+                <th>Duration (in minutes) </th>
+                <th>Severity (1-10) </th>
             </tr>
-            <!-- <div class="loadingElement" id="entryDefaultElement"> Click on a Log to View Entries </div> -->
-        </div>
+        </table>
+    </div>
 
     </div>
 
     <div class='footer'>
-
+        <a href="/about.html">About</a>
+        <a class="loginOut" href="/settings.html">Settings</a>
     </div>
     <script src="./src/api.config.js"></script>
     <script src="./src/simple-storage.js"></script>
