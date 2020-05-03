@@ -62,6 +62,6 @@ exports.deleteSymptomEntry = function(req, res) {
     if (err) {
       res.send(err);
     }
-    res.json({ msg: 'Entry has been deleted.' });
+    return res.status(200).send('Symptom Entry was delted');
   });
 };

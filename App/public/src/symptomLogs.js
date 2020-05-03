@@ -20,7 +20,6 @@
       const block = document.createElement('div');
       block.className = "logBlock";
 
-      //TO DO get it so you can click each tiem 
       li.addEventListener('click', function (_mouseEvent) {
         showSymptomEntries(symptomLog._id);
       }
@@ -52,30 +51,40 @@
 
 async function showSymptomEntries(symptomLogId) {
 
-  // const symptomLogId = symptomLog._id;
 
   const symptomEntries = await getSymptomEntries(symptomLogId);
   console.log(symptomEntries);
 
   if (symptomEntries.length) {
     const symptomEntryElement = document.getElementById('symptomEntries');
-    
+
     const oldEntries = symptomEntryElement.querySelectorAll(".entryListItem");
     oldEntries.forEach((oldEntry) => {
       symptomEntryElement.removeChild(oldEntry)
     });
+
+    //Create Table with Symptom Etnries 
     symptomEntries.map((symptomEntry) => {
 
       const tr = document.createElement('tr');
       tr.className = "entryListItem";
 
+      const deleteButton = document.createElement('td');
+      deleteButton.className = "fa fa-minus";
+      deleteButton.addEventListener('click', function (_mousEvent) {
+        deleteSymptomEntry(symptomEntry).then(res => {
+          console.log(res.status);
+          if (res && res.status === 200) {
+            tr.remove();
+          }
+        })
+      });
+
       const onsetSpan = document.createElement('td');
       onsetSpan.innerText = symptomEntry.symptomOnset;
-      onsetSpan.className = "entryOnset"
 
       const descriptionSpan = document.createElement('td');
       descriptionSpan.innerText = symptomEntry.symptomDescription;
-      descriptionSpan.className = "entryDescription";
 
       const durationSpan = document.createElement('td');
       durationSpan.innerText = symptomEntry.symptomDuration;
@@ -83,12 +92,13 @@ async function showSymptomEntries(symptomLogId) {
       const severitySpan = document.createElement('td');
       severitySpan.innerText = symptomEntry.symptomSeverity;
 
+      tr.appendChild(deleteButton);
       tr.appendChild(onsetSpan);
       tr.appendChild(descriptionSpan);
       tr.appendChild(durationSpan);
       tr.appendChild(severitySpan);
 
-      
+
       symptomEntryElement.appendChild(tr);
     });
   } else {

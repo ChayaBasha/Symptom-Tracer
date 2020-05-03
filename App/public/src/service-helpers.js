@@ -30,11 +30,13 @@ function _put(url, data) {
 
 function _delete(url) {
   return fetch(url, {
-    method: 'DELETE'
-  });
-  return res.json();
+    method: 'DELETE',
+    headers: {
+      'auth-token': authTokenHeader(),
+    }
+  }).then(handleRequestFailure);
 
-}
+} ;
 
 function authTokenHeader() {
   const access_token = getStorage('access_token');
@@ -44,7 +46,7 @@ function authTokenHeader() {
 }
 //TO Do: body stream is locked and not doing the logout
 function handleRequestFailure(failedReq) {
-  
+
   if (failedReq.status == 401) {
     logout();
     window.location.href = '/';

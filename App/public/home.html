@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/grid.css">
     <link rel="stylesheet" type="text/css" href="css/logDisplay.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/entryView.css"> -->
 
 <body class='container'>
@@ -26,8 +27,8 @@
     </div>
     <div class="logView">
         <div class="logNavBar">
-            <li>Log View</li>
-            <li>Date View</li>
+            <!-- <li>Log View</li>
+            <li>Date View</li> -->
         </div>
 
 
@@ -35,10 +36,11 @@
 
         <table class="entryList" id="symptomEntries">
             <tr class=entryHeadings>
+                <th></th>
             <th>Onset Date </th>
             <th> Description </th>
-            <th>Duration </th>
-            <th>Severity </th>
+            <th>Duration (in minutes) </th>
+            <th>Severity (1-10) </th>
             </tr>
             <!-- <div class="loadingElement" id="entryDefaultElement"> Click on a Log to View Entries </div> -->
         </div>

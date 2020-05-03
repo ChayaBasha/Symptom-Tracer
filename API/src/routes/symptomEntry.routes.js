@@ -14,3 +14,6 @@ symptomEntryRoutes
   .delete('/:symptomEntryId', symptomEntryController.deleteSymptomEntry);
 
 module.exports = symptomEntryRoutes;
+
+
+

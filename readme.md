@@ -10,6 +10,7 @@ Symptom Tracer is an app designed to allow you to track all of your health sympt
 - Add Symptom Entry 
 - Display Symptom Entries for Symptom Log
 - token expires and redirects to root 
+- Delete Symptom Entry
 
 # Features Under Development
 - Examples When not Logged In
@@ -17,7 +18,6 @@ Symptom Tracer is an app designed to allow you to track all of your health sympt
 - Update Symptom Log
 - Update User
 - Delete Symptom Log
-- Delted Symptom Entry
 - All Features for Helath Inputs 
 
 # To Do
@@ -28,7 +28,7 @@ Symptom Tracer is an app designed to allow you to track all of your health sympt
 - fix add symptom log button
 - fix footer
 - Fix log view
-- Fix logNav buttonsa nd funcitonality 
+- refactor for organization 
 
 
 # Instructions for the APP

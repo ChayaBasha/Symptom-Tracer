@@ -1,3 +1,4 @@
+
 const SYMPTOMLOG_API = `${BASE_API_URL}/symptomLog`;
 
 function getSymptomLogs() {
@@ -14,7 +15,7 @@ function getSymptomLog(symptomLogId) {
   if (symptomLogId) {
     return _get(`${SYMPTOMLOG_API}/${symptomLogId}`).then(res => res.json());
   }
-}
+};
 
 function deleteEntry(symptomLogId) {
   return _delete(`${SYMPTOMLOG_API}/${symptomLogId}`);
@@ -37,9 +38,21 @@ function getSymptomEntries(symptomLogId) {
 };
 
 function addSymptomEntry(entryData) {
-  return _post(SYMPTOMENTRY_API(entryData.symptomLogId), entryData).then(res =>{
+  return _post(`${SYMPTOMENTRY_API(entryData.symptomLogId)}`, entryData).then(res =>{
     if(res.status === 400){
       console.log(res.json);
     }
   });
 };
+
+async function deleteSymptomEntry(entryData) {
+ return await _delete(`${SYMPTOMENTRY_API(entryData.symptomLog_id)}/${entryData._id}`).then(res => {
+    if(res && res.status==200) {
+      alert('Symptom Entry deleted')
+    } else {
+      throw new Error ('could not remove symptom entry at this time');
+    }
+    console.log(res);
+    return res;
+  })
+}
