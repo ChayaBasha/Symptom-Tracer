@@ -2,22 +2,38 @@
 # About Symptom Tracer
 Symptom Tracer is an app designed to allow you to track all of your health symptoms from weird pains in your toes to sporatic dizziness as well as some potential triggers in one place.
 
+# Features that Work (all e2e tested)
+- Login
+- Register
+- Add New Symptom Log
+- Display Symptom Logs
+- Add Symptom Entry 
+- Display Symptom Entries for Symptom Log
+- token expires and redirects to root 
+- Delete Symptom Entry
+- Delete Symptom Log
+- Update User
+- Update Symptom Log
+- Update Symptom Etnries
+
 # Features Under Development
-connecting front end to backend
-front ent to add health input log, symptom log, examples (non-logged in)
+- All Features for Helath Inputs (these will basically be the same but with different titles and fields...back end is somewhat complete for this with some fixes needed)
+    - Healh Input Log Features 
+        - Create Health input log
+        - Update Health Input log
+        - show Health Input Log
+        - Delte Health Input Log
+    - Health Entries
+        - Create Health Entry
+        - Update Health Entry
+        - show Health Entry
+        - Delte Health Entry 
+- Refresh Token
 
-# Where I am at in Development
-I did not yet get the front and back end connected due to time constraints
+# To Do
 
-I did get a lot of the backend built out: backend for CRUD of each feature 
-
-## Using Post Man
-Authentication works
-Generating Tokens Works
-Not allowing to add otther logs if not logged in works
-Adding Logs works
-Adding Symptoms Works
-Did not yet test update and delete for anything but users (users does work)
+- reorganize files into folders to make it easier in development (will take some time to fix routes )
+- need to fix route back to symptom log after update or add entry(requires URL Params to be passed back and will take some more time to do) 
 
 
 # Instructions for the APP
@@ -29,14 +45,17 @@ I did not push up my jwt-config.js file for security reasons and best practices.
 
 ```
 module.exports = {
-    secret: <yourSecret>
+    secret: "<yourSecret>"
 };
 
 ```
 
-In order to run this, you will need a mongo database called symptomTracer. Remmber to create a new db in mongo you need to insert one into it for it to stay created. 
+In order to run this, you will need a mongo database called symptomTracer. Remmber to create a new db in mongo you need to insert one into it for it to stay created.
+```
+db.users.insertOne({userName:"test", password:"password"})
+```
 
-In order to start the backend server, you need to cd so that you are in the API folder
+In order to start the backend server, you need to cd so that you are in the API folder and then run the nodemon script
 
 ```
 npm run serve
@@ -44,13 +63,7 @@ npm run serve
 ```
 
 ## Front End
-Cd do you are in the App folder
+cd so you are in the App folder and then run the nodemon script.
 ```
-node server/index.js
+npm run serve
 ```
-
-# Things I still need to Do
-
-Connect backend and front end. 
-Build out additional forms and views
-Play Around with Navigation to make sure it works both directions

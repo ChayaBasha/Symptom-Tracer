@@ -5,12 +5,12 @@ const healthInputLogRoutes = express.Router();
 // Routes if there is nothing added to the Path
 
 healthInputLogRoutes
-  .get('/', healthInputLogController.getAllHealthInputLogs) 
+  .get('/', healthInputLogController.getAllUserHealthInputLogs) 
   .post('/', healthInputLogController.createHealthInputLog); 
 
 healthInputLogRoutes
   .get('/:healthInputLogId', healthInputLogController.getHealthInputLog)
-  .post('/:healthInputLogId', healthInputLogController.updateHealthInputLog)
+  .put('/:healthInputLogId', healthInputLogController.updateHealthInputLog)
   .delete('/:healthInputLogId', healthInputLogController.deleteHealthInputLog);
 
   module.exports = healthInputLogRoutes;

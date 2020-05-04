@@ -8,7 +8,7 @@ body {
 .container {
     display: grid;
     grid-template-columns: [first] 20% [second] 20% [third] auto [fourth] 20% [fifth] 20%;
-    grid-template-rows:[row1] 8% [row2] 6% [row3] auto [row4] 15% [row5] 15% [row6] 10%;
+    grid-template-rows:[row1] 8% [row2] 6% [row3] 6% [row4] auto [row5] 15% [row6] 10%;
     background-color: white;
     position: absolute;
     width: 100%;
@@ -20,22 +20,29 @@ body {
 .container > div {
     background-color: rgba(175, 201, 220,.7);
     padding: 4px;
-    line-height: 100%;
-    color: rgb(88, 123, 155);
+    line-height: 150%;
 }
 
 .header {
     grid-column: 1/6;
     grid-row: 1;
-    font-size:2.5em;
+    font-size:2em;
     font-family:copperplate;
     text-align: center;
+    color: rgb(88,123,155);
 }
 
+.loginOut {
+    font-family:arial;
+    font-size: 0.75em;
+    float:right;
+    margin-right:1em;
+}
 .aside {
     grid-column:1;
     grid-row:2/6;
     text-align:center;
+    color: rgb(88,123,155);
 }
 
 .asideBar {
@@ -44,8 +51,10 @@ body {
     border-radius: 8px;
     padding: 8px 8px;
     margin: 8px;
-    height: 30 px;
+    height: 30px;
     font-weight: bold;
+    justify-self:stretch;
+
 }
 h2 {
     background-color: rgb(187, 230,187);
@@ -60,12 +69,33 @@ a {
     font-family: fantasy;
 }
 
+
+ul {
+    list-style: none;
+}
+
 li a:hover {
     background-color: rgb(219,193,222);
 
 }
+a:link {
+    color: rgb(214, 103, 241);
+}
+a:visited {
+    color: purple;
+}
+
+.link {
+    text-decoration: underline;
+}
+
+
+a:hover {
+    background-color: darkcyan;
+
+}
 .mainContent {
-    grid-column:2/6;
+    grid-column:1/6;
     grid-row:2/6;
     background-color: white;
     background-image:url('ST_Helix.svg');
@@ -79,41 +109,34 @@ li a:hover {
     text-align: center;
 }
 
-.loginForm {
-    grid-column:3/5;
-    grid-row:4/5;
-    justify-self: stretch;
-    align-self:center;
-    font-family: copperplate;
-    padding: 1em;
-    text-align: center;
-}
-
-.registerForm {
-    grid-column:2/6;
-    grid-row:4/6;
-    justify-self: center;
-    align-self:center;
-    font-family: copperplate;
-    padding: 1em;
-    text-align: center;
-}
-
-.button {
-    background-color: rgb(187, 230,187);
-    border-radius: 8px;
-    border-color: rgb(187, 230,187);
+.mainContentNoLogs {
+    grid-column:1/6;
+    grid-row:2/6;
+    background-color: white;
+    background-image:url('ST_Helix.svg');
+    background-repeat: no-repeat;
+    background-position: left;
     font-family: fantasy;
     color: rgb(88, 123, 155);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
 }
-
-.button :hover {
-    background-color:rgb(219,193,222);
-}
-
 
 .footer {
     grid-column:1/6;
     grid-row:6;
     text-align: center;
+}
+
+.logView {
+    grid-column: 2/6;
+    grid-row: 2/6;
+    display: grid;
+    grid-template-columns: [first] 20% [second] auto [third] 15% [fourth] 15%;
+    grid-template-rows: [first] 5% [second] 5% [third] auto [fourth] 5%;
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    color: rgb(214, 103, 241);
 }

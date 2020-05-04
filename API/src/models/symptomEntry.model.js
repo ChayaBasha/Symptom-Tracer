@@ -26,6 +26,11 @@ const symptomEntrySchema = new Schema({
       }]
   },
 
+  symptomLog_id: {
+    type: Schema.Types.ObjectId,
+    required: true
+  }
+
 });
 
 module.exports.symptomEntrySchema = symptomEntrySchema;

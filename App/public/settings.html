@@ -19,12 +19,12 @@
                     <li class="asideBar" ><a href="./activityLog.html">Activity Log</a></li>
             </div>
 
-            <main class="mainContentNoLogs">
-                With Symptom Tracer you can track your Health and health inputs all in one easy to use app
+            <main class="mainContent">
+                <br> You can Update Your User Details Here
             </main>
             <div class='registerForm'>
                 <form>
-                    <h2>Register to get Started</h2>
+                    <h2>User Settings</h2>
                     <label for="firstName"> First Name</label>
                    <input type="text" id="firstName" name="firstName">
                    <label for="lastName"> Last Name</label>
@@ -37,8 +37,9 @@
                    <input type="text" id="password" name="password">
                    <br>
                    <br>
-                   <button class='button' onclick="doRegister(event)">Register</button>
-                   <button class='button'><a href="/">Cancel</a></button>
+                   <button class='button' onclick="doUpdateUserSettings(event)">Submit</button>
+                   <button class='button' onclick="clearForm(event)">Clear</button>
+                   <button class='button'><a href="/home.html">Cancel</a></button>
 
                 </form>
             </div>
@@ -50,6 +51,9 @@
             <script src="./src/service-helpers.js"></script>
             <script src="./src/auth.service.js"></script>
             <script src="./src/app.js"></script>
+            <script src ="./src/route-guard.js"></script>
+            <script src="./src/settings.js"></script>
+           
 
         </body>
     </head>

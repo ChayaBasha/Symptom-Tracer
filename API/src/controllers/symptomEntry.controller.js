@@ -1,37 +1,51 @@
-const symptomEntry = require('../models/symptomEntry.model').symptomEntryModel;
+const {symptomEntryModel} = require('../models/symptomEntry.model');
 
 exports.getAllSymptomEntries = function(req, res) {
-  symptomEntry.find({}, function(err, data) {
+  symptomEntryModel.find({symptomLog_id:req.params.symptomLogId}, function(err, symptomEntries) {
     if (err) {
       res.send(err);
+    } else if (symptomEntries) {
+      res.json(symptomEntries);
+    } else {
+      res.status(400).send("Could not get Symptom Entries")
     }
-    res.json(data);
   });
 };
 
 exports.getSymptomEntry = function(req, res) {
-  symptomEntry.findById(req.params.SymptomEntryId, function(err, data) {
+  symptomEntryModel.findOne({_id:req.params.symptomEntryId, symptomLog_id:req.params.symptomLogId}, 
+    function(err, symptomEntry) {
     if (err) {
       res.send(err);
     }
-    res.json(data);
+    res.json(symptomEntry);
   });
 };
 
 exports.createSymptomEntry = function(req, res) {
-  const newSymptomEntry = new symptomEntry({...req.body}); 
+  console.log('Ya Posted');
+  
+  const newSymptomEntry = new symptomEntryModel({...req.body, symptomLog_id:req.params.symptomLogId}); 
   
   newSymptomEntry.save(function(err, data) {
-    if (err) {
-      res.send(err);
-    }
+    // console.log(err,data);
+    if(err && err.name === "ValidationError"){
+      res.status(400).send(err)
+    } else if (err) {
+      console.log(err)
+      res.status(500).send("There was an error");
+    } else if(data) {
     res.json(data);
+    } else {
+      res.status(400).send("could not add Entry");
+    }
+
   });
 };
 
 exports.updateSymptomEntry = function(req, res) {
-  SymptomEntryId.findOneAndUpdate(
-    { _id: req.params.SymptomEntryId},
+  symptomEntryModel.findOneAndUpdate(
+    { _id: req.params.symptomEntryId, symptomLog_id:req.params.symptomLogId},
     req.body,
     { new: true },
     function(err, data) {
@@ -44,10 +58,10 @@ exports.updateSymptomEntry = function(req, res) {
 };
 
 exports.deleteSymptomEntry = function(req, res) {
-  symptomEntry.deleteOne({ _id: req.params.SymptomEntryId}, function(err) {
+  symptomEntryModel.deleteOne({ _id: req.params.symptomEntryId, symptomLog_id:req.params.symptomLogId}, function(err) {
     if (err) {
       res.send(err);
     }
-    res.json({ msg: 'Entry has been deleted.' });
+    return res.status(200).send('Symptom Entry was delted');
   });
 };

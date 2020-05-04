@@ -1,0 +1,76 @@
+
+[hidden] {
+  display: none !important;
+}
+.logList {
+  padding: 0;
+  margin: 0;
+}
+.logListItem {
+  margin: 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: rgb(214, 103, 241);
+  background-color: rgb(187, 230, 187);
+}
+
+.logList li:hover {
+  background-color: #DDD;
+}
+
+.logList li.selected {
+  background-color: rgb(19, 101, 136);
+  color: white;
+}
+
+
+.logBlock{
+display: flex;
+align-items: baseline;
+text-align: center;
+justify-content: space-between;
+}
+
+.logName {
+  padding: 8px;
+  font-size: 1.5em;
+}
+
+.logNavBar {
+  grid-column: 1/6;
+  grid-row: 1;
+  display: flex;
+  color: rgb(214, 103, 241);
+  justify-content: space-evenly;
+}
+
+.logNavBar h1 {
+  font-size: 1.5em;
+  padding: 6px;
+  margin: 0;
+}
+i:hover {
+background-color:darkcyan;
+}
+
+.logNavBar >li {
+   display: inline-block;
+}
+
+.entryList {
+  grid-column: 1/6;
+  grid-row: 2/4;
+  text-align: center;
+} 
+
+.entryHeadings {
+  text-align: left;
+}
+tr {
+  text-align: left;
+}
+tr :hover {
+  background-color: darkcyan;
+}
+
+

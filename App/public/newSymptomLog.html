@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/grid.css">
+        <link rel="stylesheet" type="text/css" href="css/forms.css">
+        <link rel="stylesheet" type="text/css" href="css/logDisplay.css">
+
+        <body class='container'>
+            <div class='header'>
+                Welcome to Symptom Tracer 
+                <a class="loginOut" id="logout" onclick="doLogout(event)" href="./">Logout</a>
+            </div>
+            <div class="aside">
+                <h2> My Logs</h2>
+                <h3>Symptom Categories <a href="./newSymptomLog.html">+</a></h3>
+                
+               <div id="symptomLogs">
+                   <div> No Logs to Display</div>
+               </div>
+               <h3>Health Inputs</h3>
+               <div id="healthInputLogs">
+                   <div> Loading...</div>
+               </div>
+            </div>
+            
+            <div class='logEntryForm'>
+                <form>
+                    <h2>Add a New Symptom Log</h2>
+                    <label for="symptomLogName"> Name</label>
+                   <input type="text" id="symptomLogName" name="symptomLogName">
+                   
+                   <br>
+                   <br>
+                   <button class='button' onclick="doAddSymptomLog(event)">Add New Log</button>
+                   <button class='button'><a href="./home.html">Cancel</a></button>
+
+                </form>
+        
+            </div>
+
+            <div class='footer'>
+            </div>
+            <script src="./src/api.config.js"></script>
+            <script src="./src/simple-storage.js"></script>
+            <script src="./src/service-helpers.js"></script>
+            <script src="./src/auth.service.js"></script>
+            <script src="./src/symptomLog.service.js"></script>
+            <script src="./src/route-guard.js"></script>
+            <script src="./src/symptomLogs.js"></script>
+            <script src="./src/addNewLog.js"></script>
+
+        </body>
+    </head>
+</html>

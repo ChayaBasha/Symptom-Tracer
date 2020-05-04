@@ -6,42 +6,31 @@
         <body class='container'>
             <div class='header'>
                 Welcome to Symptom Tracer
+                <a class="loginOut" href="./login.html">Login</a>
             </div>
-
-            <div class="aside">
-                <h2> Example Logs</h2>
-                <h3>Symptom Categories</h3>
-                <li class="asideBar"><a href="./headacheLog.html">Headache Log</a></li>
-                    <li class="asideBar"><a href="./achesPainsLog.html">Aches & Pains</a></li>
-                    <h3>Health Inputs</h3>
-                    <li class="asideBar" ><a href="./foodLog.html">Food Log</a></li>
-                    <li class="asideBar" ><a href="./activityLog.html">Activity Log</a></li>
-            </div>
+       
 
             <main class="mainContent">
-                <br> With Symptom Tracer you can track your Health and health inputs all in one easy to use app
-            </main>
-            <div class='loginForm'>
-                <form>
-                    <h2>Login to get Started</h2>
-                   <label for="userName"> User Name</label>
-                   <input type="text" id="userName" name="userName">
-                   <br>
-                   <br>
-                   <label for="password"> Password</label>
-                   <input type="text" id="password" name="password">
-                   <br>
-                   <br>
-                   <button class='button'>Login</button>
-                   <button class='button'><a href="./register.html">Register</button>
+                <h1>Track multiple symptoms and suspected causes</h1>
+                Login to View your Symptom Logs
+                <br>
+                <br>
+                Don't have a Symptom Tracer Log
+                <br>
+                <a class="link" href="./register.html">Register </a> to create one. 
 
-                </form>
+            </main>
+            
             </div>
 
             <div class='footer'>
                   
             </div>
-            <script src='./src/server.js'></script>
+            <script src="./src/api.config.js"></script>
+            <script src="./src/simple-storage.js"></script>
+            <script src="./src/service-helpers.js"></script>
+            <script src="./src/auth.service.js"></script>
+            <script src="./src/app.js"></script>
         </body>
     </head>
 </html>

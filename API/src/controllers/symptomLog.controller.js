@@ -1,37 +1,42 @@
-const symptomLog = require('../models/symptomLog.model');
+const {symptomLogModel} = require('../models/symptomLog.model');
 
-exports.getAllSymptomLogs = function(req, res) {
-  symptomLog.find({}, function(err, data) {
+exports.getAllUserSymptomLogs = function(req, res) {
+  symptomLogModel.find({user_id:req.user._id}, function(err, symptomLogs) {
     if (err) {
       res.send(err);
+    } else if (symptomLogs) {
+      res.json(symptomLogs);
+    } else {
+      res.status(400).send("Could not get Symptom Logs")
     }
-    res.json(data);
   });
 };
 
 exports.getSymptomLog = function(req, res) {
-  symptomLog.findById(req.params.symptomLogId, function(err, data) {
+  symptomLogModel.findOne({_id:req.params.symptomLogId, user_id: req.user._id}, 
+    function(err, symptomLog) {
     if (err) {
       res.send(err);
     }
-    res.json(data);
+    res.json(symptomLog);
   });
 };
 
 exports.createSymptomLog = function(req, res) {
-  const newSymptomLog = new symptomLog({...req.body}); //if mongo validates properly this should work to get what was entered by the user when registering
+  const newSymptomLog = new symptomLogModel({...req.body, user_id: req.user._id}); 
   
   newSymptomLog.save(function(err, data) {
     if (err) {
       res.send(err);
     }
     res.json(data);
+    console.log(JSON.stringify(data));
   });
 };
 
 exports.updateSymptomLog = function(req, res) {
-  symptomLogId.findOneAndUpdate(
-    { _id: req.params.SymptomLogId},
+  symptomLogModel.findOneAndUpdate(
+    { _id: req.params.symptomLogId, user_id: req.user._id},
     req.body,
     { new: true },
     function(err, data) {
@@ -44,10 +49,9 @@ exports.updateSymptomLog = function(req, res) {
 };
 
 exports.deleteSymptomLog = function(req, res) {
-  symptomLog.deleteOne({ _id: req.params.SymptomLogId}, function(err) {
+  symptomLogModel.deleteOne({ _id: req.params.symptomLogId, user_id: req.user._id}, function(err) {
     if (err) {
       res.send(err);
-    }
-    res.json({ msg: 'Entry has been deleted.' });
+    } else res.status(200).send('Log was deleted');
   });
 };

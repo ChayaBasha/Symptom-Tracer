@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/grid.css">
+    <link rel="stylesheet" type="text/css" href="css/logDisplay.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/entryView.css"> -->
+
+<body class='container'>
+    <div class='header'>
+        Welcome to Symptom Tracer
+        <a class="loginOut" id="logout" onclick="doLogout(event)" href="/">Logout</a>
+    </div>
+
+    <div class="aside">
+        <h2> My Logs</h2>
+        <h3>Symptom Categories <a href="/newSymptomLog.html">+</a></h3>
+        <!-- this should change to display the user's logs -->
+        <div id="symptomLogs">
+            <div> No Logs to Display</div>
+        </div>
+        <h3>Health Inputs</h3>
+        <div id="healthInputLogs">
+            <div> Loading...</div>
+        </div>
+    </div>
+    <div class="logView">
+        <div class="entryList" id="defaultPlaceHolder">
+            Click on/Create Log to display Log Details
+        </div>
+        <div hidden class="logNavBar" id="logNavBar">
+            <i id="deleteLog" class="fa fa-minus" title="delete log"></i>
+            <h1 id="symptomLogName"></h1>
+            <i id="addEntry" class="fa fa-plus" title="add entry"></i>
+        </div>
+
+        <table hidden class="entryList" id="symptomEntries">
+            <tr class=entryHeadings>
+                <th></th>
+                <th>Onset Date </th>
+                <th> Description </th>
+                <th>Duration (in minutes) </th>
+                <th>Severity (1-10) </th>
+            </tr>
+        </table>
+    </div>
+
+    </div>
+
+    <div class='footer'>
+        <a href="/about.html">About</a>
+        <a class="loginOut" href="/settings.html">Settings</a>
+    </div>
+    <script src="./src/api.config.js"></script>
+    <script src="./src/simple-storage.js"></script>
+    <script src="./src/service-helpers.js"></script>
+    <script src="./src/auth.service.js"></script>
+    <script src="./src/symptomLog.service.js"></script>
+    <script src="./src/route-guard.js"></script>
+    <script src="./src/symptomLogs.js"></script>
+    <script src="./src/app.js"></script>
+</body>
+</head>
+
+</html>

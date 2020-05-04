@@ -1,7 +1,7 @@
 const symptomEntryController = require('../controllers/symptomEntry.controller');
 const express = require('express');
 
-const symptomEntryRoutes = express.Router();
+const symptomEntryRoutes = express.Router({mergeParams: true});
 // Routes if there is nothing added to the Path
 
 symptomEntryRoutes
@@ -10,7 +10,10 @@ symptomEntryRoutes
 
 symptomEntryRoutes
   .get('/:symptomEntryId', symptomEntryController.getSymptomEntry)
-  .post('/:symptomEntryId', symptomEntryController.updateSymptomEntry)
+  .put('/:symptomEntryId', symptomEntryController.updateSymptomEntry)
   .delete('/:symptomEntryId', symptomEntryController.deleteSymptomEntry);
 
 module.exports = symptomEntryRoutes;
+
+
+

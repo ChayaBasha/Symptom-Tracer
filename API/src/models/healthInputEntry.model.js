@@ -20,7 +20,10 @@ const healthInputEntrySchema = new Schema({
     }
         ],
   },
-  
+  healthInputLog_id: {
+    type: Schema.Types.ObjectId,
+    required: true
+  }
 });
 
 module.exports.healthInputEntrySchema = healthInputEntrySchema;

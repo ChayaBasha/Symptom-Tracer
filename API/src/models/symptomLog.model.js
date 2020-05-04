@@ -1,6 +1,5 @@
 //imports 
 const mongoose = require('mongoose');
-const {symptomEntrySchema} = require('./symptomEntry.model');
 
 const Schema = mongoose.Schema;
 
@@ -10,13 +9,17 @@ const symptomLogSchema = new Schema({
       type: String,
       default: 'Unamed Symptom Log'
   },
-  symptomEntries: [symptomEntrySchema],
     
   dateCreated: {
     type: Date,
     default: Date.now
   },
-  
+  //this ties the log to a particular user
+  user_id: {
+    type: Schema.Types.ObjectId,
+    required: true
+  }
 });
 
-module.exports = mongoose.model('symptomLog', symptomLogSchema);
+const symptomLogModel = mongoose.model('symptomLog', symptomLogSchema);
+module.exports = {symptomLogModel, symptomLogSchema};
