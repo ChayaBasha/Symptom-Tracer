@@ -13,10 +13,6 @@ describe('User API service', () => {
     const updatedTestUser = {
         userName: "TestFrog"
     }
-    const anotherTestUser = {
-        ...testUser,
-        ...updatedTestUser
-    }
 
     let token = '';
 
