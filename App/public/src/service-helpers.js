@@ -50,11 +50,13 @@ function handleRequestFailure(failedReq) {
   if (failedReq.status == 401) {
     logout();
     window.location.href = '/';
+    alert('pleaase login to see this page')
   }
   if (failedReq.status == 403) {
     if (failedReq.json().msg == "Invalid Token") {
       logout();
       window.location.href = '/';
+      alert('you were logged out for security reasons')
     }
     logout();
     window.location.href = '/';

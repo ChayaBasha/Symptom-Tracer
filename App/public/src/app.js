@@ -57,10 +57,12 @@ const doLogin = function(event) {
   (() => {
   if (storageHasData()) {
     const isAuth = getStorage('isAuth');
-    if(!isAuth) {
-      document.getElementById('logout').setAttribute("hidden", "hidden");
-    } else {
+    if(isAuth) {
+      document.getElementById('login').setAttribute("hidden", "hidden");
       document.getElementById('logout').removeAttribute("hidden");
+    } else {
+      document.getElementById('login').removeAttribute("hidden");
+      document.getElementById('logout').setAttribute("hidden", "hidden");
     }
   }
 })();

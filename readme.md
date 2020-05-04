@@ -17,8 +17,7 @@ Symptom Tracer is an app designed to allow you to track all of your health sympt
 - Update Symptom Etnries
 
 # Features Under Development
-- Examples When not Logged In
-- All Features for Helath Inputs
+- All Features for Helath Inputs (these will basically be the same but with different titles and fields...back end is somewhat complete for this with some fixes needed)
     - Healh Input Log Features 
         - Create Health input log
         - Update Health Input log
@@ -33,8 +32,9 @@ Symptom Tracer is an app designed to allow you to track all of your health sympt
 
 # To Do
 
-- refactor for organization 
-- Write Unit Tests 
+- reorganize files into folders to make it easier in development (will take some time to fix routes )
+- need to fix route back to symptom log after update or add entry(requires URL Params to be passed back and will take some more time to do) 
+
 
 # Instructions for the APP
 

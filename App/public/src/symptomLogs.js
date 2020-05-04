@@ -117,7 +117,8 @@ async function showSymptomEntries(symptomLogId) {
 
       const deleteButton = document.createElement('td');
       deleteButton.className = "fa fa-minus";
-      deleteButton.addEventListener('click', function (_mousEvent) {
+      deleteButton.addEventListener('click', function (mouseEvent) {
+        mouseEvent.stopImmediatePropagation();
         deleteSymptomEntry(symptomEntry).then(res => {
           console.log(res.status);
           if (res && res.status === 200) {

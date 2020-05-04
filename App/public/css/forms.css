@@ -1,7 +1,7 @@
 .loginForm {
-    grid-column:2/6;
+    grid-column:1/6;
     grid-row:3/5;
-    justify-self: stretch;
+    justify-self: center;
     align-self:center;
     font-family: copperplate;
     padding: 1em;
@@ -10,7 +10,7 @@
 }
 
 .registerForm {
-    grid-column:2/6;
+    grid-column:1/6;
     grid-row:3/5;
     justify-self: center;
     align-self:center;

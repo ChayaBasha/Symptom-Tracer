@@ -95,13 +95,27 @@ a:hover {
 
 }
 .mainContent {
-    grid-column:2/6;
+    grid-column:1/6;
     grid-row:2/6;
     background-color: white;
     background-image:url('ST_Helix.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size:contain;
+    font-family: fantasy;
+    color: rgb(88, 123, 155);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.mainContentNoLogs {
+    grid-column:1/6;
+    grid-row:2/6;
+    background-color: white;
+    background-image:url('ST_Helix.svg');
+    background-repeat: no-repeat;
+    background-position: left;
     font-family: fantasy;
     color: rgb(88, 123, 155);
     font-size: 1.5em;
